@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
+		
+		<script src="js/jquery-1.12.0.js"></script>		
+		
+    	<script src="js/jquery.cookie.js"></script>
+    	<script src="js/cart.js"></script>
+    	<script type="text/javascript" src="js/logoin.js"></script>
+	</head>
+	<body>
+		<!--登录-->
+			<div id="quickLogin2" style="display: block;">
+				<div class="login_zz"></div>
+				<div class="login_cont_bg">
+	        		<div class="login_title">
+	        			<i id="closeLogin"></i>
+	        			您尚未登录
+	        		</div>
+        		<div class="login_cont">
+        			<form id="fLogin" method="post">
+        				<div class="login_text">
+			                <div>
+			                	<a href="register.html" target="_blank">立即注册</a>
+			                </div>
+			                <i></i>
+			                <span>可得会员</span>
+			            </div>
+			            
+			            <div class="login_inpt">
+			                <i class="name_i"></i>
+			                <input type="text" id="LoginName" name="UserName" value="" placeholder="已注册邮箱/用户名/已验证手机">
+			                <i class="name_close"></i>
+			            </div>
+			            
+			             <div class="name_remind"></div>
+			            <div class="login_inpt">
+			                <i class="password_i"></i>
+			                <input type="password" id="LoginPwd" name="Password" class="password_input" value="" placeholder="密码">
+			            </div>
+			            <div class="password_remind"></div>
+			            
+            			<div class="verify" style="display: block;" id="verifyDiv">
+        			 		<input id="loginCode" type="text"  />
+        			 		<div class="verify_div"></div>
+        			 		<div class="verify_txt" style="width: 60px;height: 28px;line-height: 28px;background: #72B7FC;float: left;text-align: center;">换一张</div>
+        			 		<div class="verify_remind"></div>
+            			</div>
+            			
+            			<div class="remember">	               
+			                <i class="remember_name_i on" id="btnRememberAccount"></i>
+			                <span>记住账户</span>
+			                <i class="auto_name_i " id="btnAutoLogin"></i>
+			                <span>自动登录</span>
+			                <span class="remember_remind"></span>
+			                <span class="remember_forget"><a href="#">忘记密码？</a></span>
+			            </div>
+			            
+			            <div class="login_btn">登录</div>
+			            <div class="new_user">新用户？<a href="#">免注册购买</a></div>
+			            <div class="cooperation">
+			                <div class="cooperation_text">使用合作网站账户登录可得：</div>
+			                <div class="cooperation_icon">
+			                    <a href="#"><i class="icon_qq"></i></a>
+			                    <a href="#"><i class="icon_weibo"></i></a>
+			                    <a href="#"><i class="icon_zfb"></i></a>
+			                </div>
+			            </div>
+        			</form>
+        		</div>
+			</div>			
+		</div>
+	</body>
+</html>
