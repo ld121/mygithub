@@ -11,6 +11,7 @@ $(function(){
 		
 		$("#RegisterSumbitBtn").click(function(){
 			var users = $.cookie("users") ? JSON.parse($.cookie("users")) : [];
+
 			//注册(cookie存储)			
 			var check = $('#agree').prop('checked');
 			if(!check){

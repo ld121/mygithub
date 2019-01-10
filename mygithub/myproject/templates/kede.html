@@ -37,8 +37,8 @@
 						<a href="#">收藏可得网</a>
 					</div>
 					<div class="float_left">
-						您好，欢迎光临可得眼镜网！<a href="logoin.html" class="login">登录</a>
-						<a href="register.html" class="register">[免费注册]</a>
+						您好，欢迎光临可得眼镜网！<a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
+						<a href="register.html" class="{% url 'glassesweb:register' %}">[免费注册]</a>
 					</div>
 
 					<!--头部右侧菜单栏-->
