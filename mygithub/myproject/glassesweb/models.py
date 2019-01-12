@@ -14,4 +14,13 @@ class Wheel(Bass):
     class Meta:
         db_table= 'bg_lunbotu'
 
+class Floor2(Bass):
+
+    price = models.CharField(max_length=50)
+    sales = models.CharField(max_length=50)
+    class Meta:
+        db_table='floor_2tu'
+
+
+
 
