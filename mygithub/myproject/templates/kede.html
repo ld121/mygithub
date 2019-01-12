@@ -596,6 +596,12 @@
 							<div class="content">
 								<div class="banner">
 									<!--添加背景图-->
+                                    <ul class ='slidebox'>
+                                        {% for whe in wheel %}
+                                            <li style="background-color:{{ whe.bgcolor }}"><a href="#"><img src="{{ whe.img }}"></a></li>
+                                        {% endfor %}
+                                    </ul>
+
 					                <a id="prev" class="arrow">&lt;</a>
 					                <a id="next" class="arrow">&gt;</a>
 

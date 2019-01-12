@@ -35,21 +35,22 @@ $(function(){
 		$(this).find('.left_div').hide();
 	})
 	
-	//背景图创建
-	$.get("json/bg_lunbotu.json",function(data){
-		var ul = $("<ul class ='slidebox'></ul>");
-		ul.appendTo(".banner");
-			
-		for(var i=0; i<data.length; i++){
-			var obj = data[i];
-			
-			var li = $("<li style ='background-color:" + obj.color+"'></li>");			
-			li.appendTo(ul);			
-			var a = $("<a href='#'></a>");
-			a.appendTo(li);			
-			var imgs = $("<img src=" + obj.imgs + " />");
-			imgs.appendTo(a);		
-		}
+	// 背景图创建
+	// $.get("../../static/json/bg_lunbotu.json",function(data){
+	// 	var ul = $("<ul class ='slidebox'></ul>");
+	// 	ul.appendTo(".banner");
+    //
+	// 	for(var i=0; i<data.length; i++){
+	// 		var obj = data[i];
+    //
+	// 		var li = $("<li style ='background-color:" + obj.color+"'></li>");
+	// 		li.appendTo(ul);
+	// 		var a = $("<a href='#'></a>");
+	// 		a.appendTo(li);
+	// 		var imgs = $("<img src=" + obj.imgs + " />");
+	// 		imgs.appendTo(a);
+	// 	}
+
 	
 		//背景图轮播
 		var $slidebox = $('.slidebox');
@@ -109,8 +110,8 @@ $(function(){
 	//		$('.arrow').hide();
 		})
 	
-	})
-})
+	// })
+
 
 //右边内容的轮播
 $(function(){
@@ -193,4 +194,5 @@ $(function(){
 		$(".pf_weixin").hide();
 	})
 	
+})
 })

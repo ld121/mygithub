@@ -1,12 +1,15 @@
 from django.shortcuts import render
 
 # Create your views here.
-
+from glassesweb.models import Wheel
 
 
 def kede(request):
-
-    return render(request,'kede.html')
+    wheel = Wheel.objects.all()
+    data = {
+        "wheel":wheel,
+    }
+    return render(request,'kede.html',data)
 
 
 def logoin(request):
