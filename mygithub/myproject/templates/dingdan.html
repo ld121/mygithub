@@ -1,22 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>强生舒日隐形眼镜日抛30片装</title>
     	<meta name="Keywords" content="眼镜,眼镜网,隐形眼镜,隐形眼镜网,美瞳,配眼镜">
-    	<link rel="stylesheet" href="css/kede.css" type="text/css"/>
-    	<link rel="stylesheet" href="css/dingdan.css" type="text/css"/>
+    	<link rel="stylesheet" href="{% static 'css/kede.css' %}" type="text/css"/>
+    	<link rel="stylesheet" href="{% static 'css/dingdan.css' %}" type="text/css"/>
     	
-    	<script src="js/jquery-1.12.0.js"></script>
-    	<script type="text/javascript" src="js/kedeJQ.js"></script>
-    	<script src="js/jquery.fly.min.js"></script>
+    	<script src="{% static 'js/jquery-1.12.0.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/kedeJQ.js' %}"></script>
+    	<script src="{% static 'js/jquery.fly.min.js' %}"></script>
     	
-    	<script type="text/javascript" src="js/dingdan.js"></script>
-    	<script type="text/javascript" src="js/magnifiter.js"></script>
-    	<script src="js/light.js"></script>	
-    	<script src="js/jquery.cookie.js"></script>
-    	<script type="text/javascript" src="js/cart.js"></script>
-    		
+    	<script type="text/javascript" src="{% static 'js/dingdan.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/magnifiter.js' %}"></script>
+    	<script src="{% static 'js/light.js' %}"></script>
+    	<script src="{% static 'js/jquery.cookie.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
     	
 	</head>
 	<body>
@@ -26,7 +27,7 @@
 				<div class="top">
 					<!--头部左侧-->
 					<div class="h_left">
-						<img src="img/img/h_icon1.png">
+						<img src="{% static 'img/img/h_icon1.png' %}">
 						<a href="#">收藏可得网</a>
 					</div>				
 					<div class="float_left">
@@ -37,7 +38,7 @@
 					<!--头部右侧菜单栏-->
 					<div class="float_right">
 						<span class="menu_top"><a href="#">我的礼券</a></span>
-						<span class="menu_tab"><a href="#">我的可得<img src="img/img/arrow1.png"></a>
+						<span class="menu_tab"><a href="#">我的可得<img src="{% static 'img/img/arrow1.png' %}"></a>
 							<ul class="sub_item">
 								<li><a href="#">我的订单</a></li>
 								<li><a href="#">我的收藏</a></li>
@@ -46,7 +47,7 @@
 							</ul>
 						</span>
 						
-						<span class="menu_tab"><a href="#">帮助中心<img src="img/img/arrow1.png"></a>
+						<span class="menu_tab"><a href="#">帮助中心<img src="{% static 'img/img/arrow1.png' %}"></a>
 							<ul class="sub_item">
 								<li><a href="#">常见问题</a></li>
 								<li><a href="#">退货换货</a></li>
@@ -56,16 +57,16 @@
 							</ul>
 						</span>
 						<span class="line">|</span>
-						<span class="menu_gwc"><img src="img/img/h_icon2.png"><a href="#">购物车<b id="gwc_count">0</b>件</a></span>
-						<span class="phone"><img src="img/img/h_icon3.png"><a href="#">手机版</a>
-							<img src="img/img/h_code.png" id="h_code" />
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png' %}"><a href="#">购物车<b id="gwc_count">0</b>件</a></span>
+						<span class="phone"><img src="{% static 'img/img/h_icon3.png' %}"><a href="#">手机版</a>
+							<img src="{% static 'img/img/h_code.png' %}" id="h_code" />
 						</span>
-						<span id="tel"><img src="img/img/h_icon4.png" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
+						<span id="tel"><img src="{% static 'img/img/h_icon4.png' %}" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
 							<div id="chartWay" >
 								<p>请选择发起聊天方式：</p>
-								<img src="img/img/fancy_close.png" id="close">
-								<div class="tel_img" id="imgs1"><img src="img/img/qq.png" /></div>
-								<div class="tel_img"><img src="img/img/weixin.png" /></div>
+								<img src="{% static 'img/img/fancy_close.png' %}" id="close">
+								<div class="tel_img" id="imgs1"><img src="{% static 'img/img/qq.png' %}" /></div>
+								<div class="tel_img"><img src="{% static 'img/img/weixin.png' %}" /></div>
 								<span>安装QQ</span>
 							</div>
 						</span>
@@ -75,16 +76,16 @@
 			
 			<div class="logo">
 				<div class="logo_left">
-						<img src="img/img/logo.jpg">
+						<img src="{% static 'img/img/logo.jpg' %}">
 					</div>
 				<div class="logo_icon">
-						<img src="img/img/logo_icon.png">
+						<img src="{% static 'img/img/logo_icon.png' %}">
 						
 					</div>
 				<div class="logo_right">
 						<div id="search">
 							<div class="search_left">						
-								<i class="search_icon"><img src="img/img/search.png"/></i>
+								<i class="search_icon"><img src="{% static 'img/img/search.png' %}"/></i>
 								<input type="text" id="txt" placeholder="请输入搜索关键词"/>
 							</div>
 							<div class="search_right">
@@ -117,10 +118,10 @@
 						</ul>
 						
 						<div class="main_left">
-							<h3>全部商品分类<img src="img/img/fenlei.png"/></h3> 
+							<h3>全部商品分类<img src="{% static 'img/img/fenlei.png' %}"/></h3>
 							<ul class="left_menu" style="display: none;z-index:1;">
 								<li class="l_list">									
-									<i><img src="img/img/main_1.png" /></i>
+									<i><img src="{% static 'img/img/main_1.png' %}" /></i>
 									<a href="#">透明隐形眼镜</a>
 									<b>&gt;</b>
 									 <div class="l_list_line"></div>
@@ -182,14 +183,14 @@
 										</ul>
 										
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/bp_a1.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/bp_a2.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a2.jpg' %}"></a></li>
 							            </ul>
 									</div>
 								</li>
 								
 								<li class="l_list">
-									<i><img src="img/img/main_2.png" /></i>
+									<i><img src="{% static 'img/img/main_2.png' %}" /></i>
 									<a href="#">彩色隐形眼镜</a>
 									<b>&gt;</b>
 									<div class="l_list_line"></div>
@@ -262,14 +263,14 @@
 										</ul>
 										
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/cp_a1.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/cp_a2.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/cp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/cp_a2.jpg' %}"></a></li>
 							            </ul>
 									</div>
 								</li>
 								
 								<li class="l_list">
-									<i><img src="img/img/main_3.png" /></i>
+									<i><img src="{% static 'img/img/main_3.png' %}" /></i>
 									<a href="#">护理用品</a>
 									<b>&gt;</b>
 									<div class="l_list_line"></div>
@@ -322,14 +323,14 @@
 										</ul>
 										
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/bp_a1.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/bp_a2.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a2.jpg' %}"></a></li>
 							            </ul>
 									</div>
 								</li>
 								
 								<li class="l_list">
-									<i><img src="img/img/main_4.png" /></i>
+									<i><img src="{% static 'img/img/main_4.png' %}" /></i>
 									<a href="#">近视眼镜</a>
 									<b>&gt;</b>
 									<div class="l_list_line"></div>
@@ -399,14 +400,14 @@
 							                </li>
 										</ul>
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/dao_a1.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/dao_a2.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a2.jpg' %}"></a></li>
 							            </ul>
 									</div>
 								</li>
 								
 								<li class="l_list">
-									<i><img src="img/img/main_5.png" /></i>
+									<i><img src="{% static 'img/img/main_5.png' %}" /></i>
 									<a href="#">太阳眼镜</a>
 									<b>&gt;</b>
 									<div class="l_list_line"></div>
@@ -471,15 +472,15 @@
 							                </li>
 										</ul>
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/dao_a3g.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/dao_a4.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a3g.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a4.jpg' %}"></a></li>
 							            </ul>
 										
 									</div>
 								</li>
 								
 								<li class="l_list">
-									<i><img src="img/img/main_6.png" /></i>
+									<i><img src="{% static 'img/img/main_6.png' %}" /></i>
 									<a href="#">功能眼镜</a>
 									<b>&gt;</b>
 									<div class="l_list_line"></div>
@@ -517,14 +518,14 @@
 							                </li>
 										</ul>
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/dao_a5.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/dao_a6.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a5.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a6.jpg' %}"></a></li>
 							            </ul>
 									</div>
 								</li>
 								
 								<li class="l_list">
-									<i><img src="img/img/main_7.png" /></i>
+									<i><img src="{% static 'img/img/main_7.png' %}" /></i>
 									<a href="#">美妆个护</a>
 									<b>&gt;</b>
 									<div class="l_list_line"></div>
@@ -572,8 +573,8 @@
 										</ul>
 										
 										<ul class="child_list_right">
-							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="img/img/mz_a1.jpg"></a></li>
-							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="img/img/mz_a2.jpg"></a></li>
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/mz_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/mz_a2.jpg' %}"></a></li>
 							            </ul>
 									</div>
 								</li>								
@@ -599,18 +600,18 @@
 						<div class="d_float_left">
 							
 							<div class="details_top_img">
-								<img src="img/img_d/20160919083310_67.jpg" class="smallImg" id="d_img1"/>
-								<img src= "img/img_d/20160919083310_68.jpg" class="smallImg"/>
-								<img src= "img/img_d/20160919083311_70.jpg" class="smallImg"/>
-								<img src= "img/img_d/20160919083312_72.jpg" class="smallImg"/>
+								<img src="{% static 'img/img_d/20160919083310_67.jpg' %}" class="smallImg" id="d_img1"/>
+								<img src= "{% static 'img/img_d/20160919083310_68.jpg' %}" class="smallImg"/>
+								<img src= "{% static 'img/img_d/20160919083311_70.jpg' %}" class="smallImg"/>
+								<img src= "{% static 'img/img_d/20160919083312_72.jpg' %}" class="smallImg"/>
 								<div id="smallArea" style="display: block; width: 100px; height: 100px; background: rgba(200, 255, 200, 0.3); position: absolute; left: 75px; top: 90px;" >									
 								</div>	
 							</div>
 							<div id="bigArea">
-								<img src="img/img_d/20160919083310_67.jpg" class="bigImg"/>
-								<img src= "img/img_d/20160919083310_68.jpg" class="bigImg"/>
-								<img src= "img/img_d/20160919083311_70.jpg" class="bigImg"/>
-								<img src= "img/img_d/20160919083312_72.jpg" class="bigImg"/>
+								<img src="{% static 'img/img_d/20160919083310_67.jpg' %}" class="bigImg"/>
+								<img src= "{% static 'img/img_d/20160919083310_68.jpg' %}" class="bigImg"/>
+								<img src= "{% static 'img/img_d/20160919083311_70.jpg' %}" class="bigImg"/>
+								<img src= "{% static 'img/img_d/20160919083312_72.jpg' %}" class="bigImg"/>
 							</div>
 							
 							<div class="details_top_img_s">
@@ -619,16 +620,16 @@
         						<div id="slist" class="slist">
 	            					<ul style="width: 304px;">
 	            						<li class="hover">
-	            							<img src="img/img_d/20160919083300_18.jpg" />
+	            							<img src="{% static 'img/img_d/20160919083300_18.jpg' %}" />
 	            						</li>
 	            						<li>
-	            							<img src="img/img_d/20160919083300_19.jpg" />
+	            							<img src="{% static 'img/img_d/20160919083300_19.jpg' %}" />
 	            						</li>
 	            						<li>
-	            							<img src="img/img_d/20160919083301_20.jpg" />
+	            							<img src="{% static 'img/img_d/20160919083301_20.jpg' %}" />
 	            						</li>
 	            						<li>
-	            							<img src="img/img_d/20160919083301_21.jpg" />
+	            							<img src="{% static 'img/img_d/20160919083301_21.jpg' %}" />
 	            						</li>
 	            					</ul>
 								</div>					
@@ -642,7 +643,7 @@
 										<a href="#"><i class="sina" title="微博"></i></a>									
 										<a href="#"><i class="qq" title="QQ空间"></i></a>										
 										<a href="#"><i class="weixin"></i></a>
-										<a href="#" class="weixin_twocode" style="display: none;"><img src="img/img_d/weixin.png"/><b>用微信扫描二维码<br>分享至朋友圈</b></a>
+										<a href="#" class="weixin_twocode" style="display: none;"><img src="{% static 'img/img_d/weixin.png' %}"/><b>用微信扫描二维码<br>分享至朋友圈</b></a>
 									</span>
 								</div>
 								<div id="col" class="collect" >
@@ -654,7 +655,7 @@
 						</div>	
 						
 						<div class="two_dimension_code">
-    						<img alt="" src="img/img_d/weixin.png">
+    						<img alt="" src="{% static 'img/img_d/weixin.png' %}">
     						<p>手机扫购，更方便</p>
 						</div>
     						
@@ -688,7 +689,7 @@
 						 				<p>
 						 					<b>赠品</b>
 						 					<span>
-						 						<a href="#"><img src="img/img_d/message_1.jpg" /></a>
+						 						<a href="#"><img src="{% static 'img/img_d/message_1.jpg' %}" /></a>
 						 						<label>赠品牌润眼液15ML</label>
 						 						<label>× 1</label>
 						 					</span>
@@ -701,7 +702,7 @@
 						 				
 						 				<p>
 						 					<b>赠品</b>
-						 					<a href="#"><img src="img/img_d/message_2.jpg" /></a>
+						 					<a href="#"><img src="{% static 'img/img_d/message_2.jpg' %}" /></a>
 						 					<label>满3999元送科沃斯扫地机机器人（限送1）</label>        
 						 				</p>
 						 				
@@ -798,7 +799,7 @@
 			<!--尾部开始-->
 			<div class="footer">
 				<div class="f_top">
-					<img src="img/img/nfot-bg-03.gif" />
+					<img src="{% static 'img/img/nfot-bg-03.gif' %}" />
 				</div>
 				
 				<div class="f_middle1">
@@ -855,12 +856,12 @@
 				</div>
 				
 				<div class="f_bottom">
-					<a href="#"><img src="img/img/foot_icon1.jpg"/><span>网上交易保障中心</span></a>
-					<a href="#"><img src="img/img/foot_icon2.jpg"/><span class="txt1">诚信网站</span></a>
-					<a href="#"><img src="img/img/foot_icon33.png"/><span>网络社会征信网</span></a>
-					<a href="#"><img src="img/img/foot_icon3.jpg"/><span class="txt2">上海工商</span></a>
-					<a href="#"><img src="img/img/foot_icon55.png"/><span>中国眼镜协会会员</span></a>
-					<a href="#"><img src="img/img/foot_icon5.jpg"/><span>可得网上海名牌</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon1.jpg' %}"/><span>网上交易保障中心</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon2.jpg' %}"/><span class="txt1">诚信网站</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon33.png' %}"/><span>网络社会征信网</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon3.jpg' %}"/><span class="txt2">上海工商</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon55.png' %}"/><span>中国眼镜协会会员</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon5.jpg' %}"/><span>可得网上海名牌</span></a>
 				</div>
 			</div>
 		
@@ -874,8 +875,8 @@
 				<a href="#" class="J-shoping pf_right_5"><label id="pf_right_5">0</label></a>
 				<a href="#" class="pf_right_6" style="display: block;"></a>	
 				
-				<div class="pf_ygs"><img src="img/img/ygs.png"></div>
-    			<div class="pf_weixin"><img src="img/img/pf_weixin.png"></div>
+				<div class="pf_ygs"><img src="{% static 'img/img/ygs.png' %}"></div>
+    			<div class="pf_weixin"><img src="{% static 'img/img/pf_weixin.png' %}"></div>
 			</div>
 		
 		</div>

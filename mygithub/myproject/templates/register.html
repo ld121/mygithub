@@ -78,24 +78,25 @@
 		<div class="main">
 			<p class="register">我已经注册，<a href="{% url 'glassesweb:logoin' %}"><span>立即登录</span>&gt;</a></p>
 			<form class="box" id="Register" method="post">
+                {% csrf_token %}
 				<div class="r_left">
 					<div class="r_left_main">
 						<ul class="right_top">
 							<li class="user">
 								<p class="name us"><em>*</em>账号名：</p>
-								<input type="text" maxlength="20" class="text-box" id="RUserName" name="UserName" placeholder="用户名/邮箱/手机">
+								<input id="RUserName" name="UserName" type="text" maxlength="20" class="text-box" placeholder="用户名/邮箱/手机">
 								<span class="r_remind name_remind"></span>
 							</li>
 
 							<li>
                             	<p class="name pw"><em>*</em>设置密码：</p>
-                            	<input type="password" id="RPassword" name="Password" class="text-box">
+                            	<input name="Password" class="text-box" type="password" id="RPassword">
                             	<span class="r_remind pwd_remind"></span>
                            </li>
 
                             <li>
                             	<p class="name conf"><em>*</em>确认密码：</p>
-                            	<input type="password" id="RRePassword" name="RePassword" class="text-box">
+                            	<input name="RePassword" class="text-box" type="password" id="RRePassword">
                             	<span class="r_remind conf_remind"></span>
                            </li>
 
@@ -111,7 +112,7 @@
 
 						<ul class="right_bottom">
 							<li class="li1">
-								<input type="button" class="registerSlide" id="RegisterSumbitBtn" value="提交注册">
+								<input class="registerSlide" id="RegisterSumbitBtn" type="button" value="提交注册">
 							</li>
 
 							<li class="li2">

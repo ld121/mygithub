@@ -1,9 +1,9 @@
 $(function(){
-	$.get("json/floor_4f.json",function(data){
+	$.get("../../static/json/floor_4f.json",function(data){
 		for(var i=0; i<data.length; i++){
 			var obj = data[i];
 			var li = $('<li></li>');							
-			var a = $('<a href="#"></a');
+			var a = $('<a href="#"></a>');
 			
 			var span1 = $("<span></span>");
 			span1.addClass('wide_4f_li_img');

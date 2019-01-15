@@ -1,5 +1,5 @@
 $(function(){
-	$.get("json/floor_5f.json",function(data){
+	$.get("../../static/json/floor_5f.json",function(data){
 		for(var i=0; i<data.length; i++){
 			var obj = data[i];
 			var li = $('<li></li>');							

@@ -13,7 +13,7 @@
     	<script type="text/javascript" src="{% static 'js/shouye.js' %}"></script>
     	<script src="{% static 'js/jquery.cookie.js' %}"></script>
     	
-    	<script type="text/javascript" src="{% static 'js/floor_2.js' %}"></script>
+{#    	<script type="text/javascript" src="{% static 'js/floor_2.js' %}"></script>#}
     	<script type="text/javascript" src="{% static 'js/floor_4f.js' %}"></script>
     	<script type="text/javascript" src="{% static 'js/floor_5f.js' %}"></script>
     	<script type="text/javascript" src="{% static 'js/index_shop.js' %}"></script>
@@ -38,7 +38,7 @@
 					</div>
 					<div class="float_left">
 						您好，欢迎光临可得眼镜网！<a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
-						<a href="register.html" class="{% url 'glassesweb:register' %}">[免费注册]</a>
+						<a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
 					</div>
 
 					<!--头部右侧菜单栏-->
@@ -810,7 +810,7 @@
 				<!--1F右侧内容-->
 				<div class="wide_f_right">
         			<div class="wide_f_item">
-        				<a href="dingdan.html?1" target="_blank">
+        				<a href="{% url 'glassesweb:dingdan' %} " target="_blank">
         					<img class="wide_f_item_img" src="{% static 'img/img/1f_1.jpg'%}">
         					<label class="wide_f_item_price">￥168.00</label>
                 			<label class="wide_f_item_name">强生舒日日抛30片装</label>
@@ -819,7 +819,7 @@
         			</div>
 
         			<div class="wide_f_item">
-        				<a href="dingdan.html" target="_blank">
+        				<a href="{% url 'glassesweb:dingdan' %} " target="_blank">
         					<img class="wide_f_item_img" src="{% static 'img/img/1f_2.jpg'%}">
         					<label class="wide_f_item_price">￥158.00</label>
                 			<label class="wide_f_item_name">博士伦清朗日抛30片装</label>
@@ -828,7 +828,7 @@
         			</div>
 
         			<div class="wide_f_item">
-        				<a href="dingdan2.html" target="_blank">
+        				<a href="{% url 'glassesweb:dingdan2' %}" target="_blank">
         					<img class="wide_f_item_img" src="{% static 'img/img/1f_3.jpg'%}">
         					<label class="wide_f_item_price">￥99.00</label>
 			                <label class="wide_f_item_name">库博Biomedics欧柯莱视日抛30片装</label>
@@ -1019,9 +1019,31 @@
 	            			</ul>
 							</div>
 						</div>
-						<div class="wide_r_b" style="width: 978px;height: 240px; position: absolute;bottom: 0;right: 0;"></div>
-    			</div>
-			</div>
+						<div class="wide_r_b" style="width: 978px;height: 240px; position: absolute;bottom: 0;right: 0;">
+                            {% for show2 in f2show2 %}
+                            <div class="wide_f_item">
+                                <a href="#">
+                                    <img class="wide_f_item_img" src="{{ show2.img }}">
+                                    <label class="wide_f_item_price">{{ show2.price}}</label>
+                                    <label class="wide_f_item_name">{{ show2.name}}</label>
+                                    <label class="wide_f_item_sales">{{ show2.sales}}</label>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% for show1 in f2show1 %}
+                            <div class="wide_f_item">
+                                <a href="{% url 'glassesweb:dingdan_axjs' show1.trackid%}">
+                                    <img class="wide_f_item_img" src="{{ show1.img }}">
+                                    <label class="wide_f_item_price">{{ show1.price}}</label>
+                                    <label class="wide_f_item_name">{{ show1.name}}</label>
+                                    <label class="wide_f_item_sales">{{ show1.sales}}</label>
+                                </a>
+                            </div>
+                        {% endfor %}
+
+    			    </div>
+			    </div>
 
 
 				<!--3F开始-->
@@ -1128,7 +1150,28 @@
 	            			</ul>
 							</div>
 						</div>
-						<div class="wide_r_b" style="width: 978px;height: 240px; position: absolute;bottom: 0;right: 0;"></div>
+						<div class="wide_r_b" style="width: 978px;height: 240px; position: absolute;bottom: 0;right: 0;">
+                            {% for show2 in f2show2 %}
+                            <div class="wide_f_item">
+                                <a href="#">
+                                    <img class="wide_f_item_img" src="{{ show2.img }}">
+                                    <label class="wide_f_item_price">{{ show2.price}}</label>
+                                    <label class="wide_f_item_name">{{ show2.name}}</label>
+                                    <label class="wide_f_item_sales">{{ show2.sales}}</label>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% for show1 in f2show1 %}
+                            <div class="wide_f_item">
+                                <a href="{% url 'glassesweb:dingdan_axjs' show1.trackid%}">
+                                    <img class="wide_f_item_img" src="{{ show1.img }}">
+                                    <label class="wide_f_item_price">{{ show1.price}}</label>
+                                    <label class="wide_f_item_name">{{ show1.name}}</label>
+                                    <label class="wide_f_item_sales">{{ show1.sales}}</label>
+                                </a>
+                            </div>
+                        {% endfor %}
     			</div>
 			</div>
 

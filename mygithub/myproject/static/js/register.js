@@ -9,46 +9,48 @@ $(function(){
 	
 		//点击提交注册
 		
-		$("#RegisterSumbitBtn").click(function(){
-			var users = $.cookie("users") ? JSON.parse($.cookie("users")) : [];
+	// $("#RegisterSumbitBtn").blur(function(){
+	// 		var users = $.cookie("users") ? JSON.parse($.cookie("users")) : [];
+    //
+	// 		//注册(cookie存储)
+	// 		var check = $('#agree').prop('checked');
+	// 		if(!check){
+	// 			$('.check_remind').html('请阅读好协议！');
+	// 			return;
+	// 		}else{
+	// 			$('.check_remind').html("");
+	// 		}
+	// 		//先判断是否存在该用户
+	// 		for (var i=0; i<users.length; i++) {
+	// 			if ( users[i].name == $("#RUserName").val() ) {
+	// 				$(".name_remind").html("用户名已存在! 不能注册相同的用户");
+	// 				return;
+	// 			}
+	// 		}
+    //
+	// 		//判断是否满足所有条件
+	// 		if(isTure_name && isTure_pwd && isTure_repwd && isTure_verify){
+	// 			//注册用户
+	// 			var user = {
+	// 				name: $("#RUserName").val(),
+	// 				pwd: $("#RPassword").val()
+    //
+	// 			}
+	// 			users.push(user);
+    //
+	// 			$.cookie("users", JSON.stringify(users), {expires:22, path:"/"});
+	// 			console.log( $.cookie("users") );
+    //
+	// 			window.setTimeout(function(){
+	// 				window.location.href = "logoin.html";
+	// 			},6000);
+    //
+	// 		}else{
+	// 			alert("输入信息有误，请重新输入！");
+	// 		}
+	// })
 
-			//注册(cookie存储)			
-			var check = $('#agree').prop('checked');
-			if(!check){
-				$('.check_remind').html('请阅读好协议！');
-				return;
-			}else{
-				$('.check_remind').html("");
-			}
-			//先判断是否存在该用户
-			for (var i=0; i<users.length; i++) {			
-				if ( users[i].name == $("#RUserName").val() ) {
-					$(".name_remind").html("用户名已存在! 不能注册相同的用户");
-					return;
-				}
-			}
-			
-			//判断是否满足所有条件
-			if(isTure_name && isTure_pwd && isTure_repwd && isTure_verify){		
-				//注册用户
-				var user = {
-					name: $("#RUserName").val(),
-					pwd: $("#RPassword").val()
-					
-				}
-				users.push(user); 
-				
-				$.cookie("users", JSON.stringify(users), {expires:22, path:"/"});
-				console.log( $.cookie("users") );
-				
-				window.setTimeout(function(){
-					window.location.href = "logoin.html";
-				},6000);
-			
-			}else{
-				alert("输入信息有误，请重新输入！");
-			}
-		})
+
 	
 	//用户名只能为邮箱 /手机号/第一位非数字1的数字字母组合
 	//账号的长度在4至20个字符之间
@@ -68,12 +70,12 @@ $(function(){
 			return false;
 		}
 		else if(name.length <4 || name.length>20){
-			$(".name_remind").html("账号的长度在4至20个字符之间");			
+			$(".name_remind").html("账号的长度在4至20个字符之间");
 			return false;
        }else{
 			$(".name_remind").html("");
-			isTure_name = true;			
-		}	
+			isTure_name = true;
+		}
 	})
 	
 	//密码由英文字母、数字组成，长度6-12位。
@@ -141,7 +143,7 @@ $(function(){
 	})
 	
 	var isTure_verify;
-	 $(".txt").click(function(){
+	$(".txt").click(function(){
 	// 产生随机验证码  包含数字和大写字母	
 		var ret="";
 		for(var i=0;i<4;i++){
@@ -176,9 +178,15 @@ $(function(){
 	}).triggerHandler('click');
 			
 	//清除
-		$("#clearCart").click(function(){
+	$("#clearCart").click(function(){
 			//删除cookie
 			$.cookie("users"," ", {expires:0, path:"/"}); 
 		})
-	
+
+	$("#RegisterSumbitBtn").click(function(){
+		if(isTure_name && isTure_pwd && isTure_repwd && isTure_verify){
+
+			$("#Register").submit()
+		}
+    })
 })
