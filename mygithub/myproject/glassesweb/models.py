@@ -12,15 +12,18 @@ class Bass(models.Model):
 class Wheel(Bass):
     bgcolor = models.CharField(max_length=50)
     class Meta:
-        db_table= 'bg_lunbotu'
+        db_table= 'glasses_lunbotu'
 
 class Floor2(Bass):
 
     price = models.CharField(max_length=50)
     sales = models.CharField(max_length=50)
     class Meta:
-        db_table='floor_2tu'
+        db_table='glasses_floor2tu'
 
-
-
-
+class User(models.Model):
+    name = models.CharField(max_length=20)
+    passwd = models.CharField(max_length=30)
+    token = models.CharField(max_length=250)
+    class Meta:
+        db_table='glasses_user'
