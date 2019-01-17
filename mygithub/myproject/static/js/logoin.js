@@ -52,60 +52,75 @@ $(function(){
         }
         
         //账户输入框
+		var LoginName;
         $("#LoginName").focus().blur(function(){
         	var username = $.trim($('#LoginName').val());
         	if(!username || username.length <= 0){
         		$(".name_remind").html('请输入账户名！');
         		$("#LoginName").css("border-color","#f60");
-        		return false;
+        		LoginName = false;
+
         	}else{
         		$(".name_remind").html('');
-        		return;
+        		LoginName = true;
+
         	}
         })
         
         //密码输入框
+		var LoginPwd;
         $("#LoginPwd").focus().blur(function(){
         	var pwd = $.trim($('#LoginPwd').val());
         	if(!pwd || pwd.length <= 0){
         		$(".password_remind").html("请输入密码！");
         		$("#LoginPwd").css("border-color","#f60");
-        		return false;
+        		LoginPwd = false;
+
         	}else{
+        		LoginPwd = true;
         		$(".password_remind").html("");
         	}
         })
         
         //提交按钮
-        $(".login_btn").click(function(){        
-        	clearErrorMsg();           
-            	//判断是否存在该用户(匹配用户名和密码是否都一致)
-            var users = $.cookie("users");
-			if (users) {				
-				users = JSON.parse(users); //cookie中的所有注册过的用户				
-				var isExists = false; //表示是否存在该用户
-				for (var i=0; i<users.length; i++) {
-					if ( users[i].name == $("#LoginName").val() && users[i].pwd == $("#LoginPwd").val()){
-						window.location.href = "dingdan.html";
-						isExists = true;
-						
-					}
-				}	
-				if($.trim($('#LoginPwd').val()).length <= 0 ||$.trim($('#LoginName').val()).length <= 0){
-					alert("用户名、密码不能为空, 请重新输入!");
-				}
-				
-				if(!isExists) {
-					alert("用户名或密码错误, 请重新输入!");
-				}
-				
+        // $(".login_btn").click(function(){
+        // 	clearErrorMsg();
+        //     	//判断是否存在该用户(匹配用户名和密码是否都一致)
+        //     var users = $.cookie("users");
+			// if (users) {
+			// 	users = JSON.parse(users); //cookie中的所有注册过的用户
+			// 	var isExists = false; //表示是否存在该用户
+			// 	for (var i=0; i<users.length; i++) {
+			// 		if ( users[i].name == $("#LoginName").val() && users[i].pwd == $("#LoginPwd").val()){
+			// 			window.location.href = "dingdan.html";
+			// 			isExists = true;
+			//
+			// 		}
+			// 	}
+			// 	if($.trim($('#LoginPwd').val()).length <= 0 ||$.trim($('#LoginName').val()).length <= 0){
+			// 		alert("用户名、密码不能为空, 请重新输入!");
+			// 	}
+			//
+			// 	if(!isExists) {
+			// 		alert("用户名或密码错误, 请重新输入!");
+			// 	}
+			//
+			// }
+			// else {
+			// 	window.location.href = "kede.html";
+			// }
+        //
+        // })
+		//提交
+		$(".login_btn").click(function () {
+			if (LoginName && LoginPwd){
+				$("#fLogin").submit()
 			}
-			else {
-				window.location.href = "kede.html";
-			}
-  
+
         })
-       	 $(".verify_txt").click(function(){
+
+		var verify;
+		$(".verify_txt").click(function(){
 //        	产生随机验证码  包含数字和大写字母
 			var ret="";
 			for(var i=0;i<4;i++){
@@ -127,17 +142,22 @@ $(function(){
             if ($("#loginCode").length > 0 && (!verifyCode || verifyCode.length === 0)) {
                 $(".verify_remind").html("请输入验证码");
                 $("#loginCode").css("border-color", "#f60");
-                return false;
+                verify = false;
+
             }
             else if ($("#loginCode").length > 0 && verifyCode.length != 4) {
                 $(".verify_remind").html("验证码为4个字符长度");
                 $("#loginCode").css("border-color", "#f60");
-                return false;
+                verify = false;
+
             } else if(verifyCode != ret){
             	$(".verify_remind").html("验证码输入错误");
                 $("#loginCode").css("border-color", "#f60");
-                return false;
-            }
+                verify = false;
+            }else if(verifyCode == ret){
+				$('.verify_remind').html('');
+				isTure_verify = true;
+			}
 			})
 			
         }).triggerHandler('click');

@@ -113,8 +113,8 @@ $(function(){
 	// })
 
 
-//右边内容的轮播
-$(function(){
+	//右边内容的轮播
+	$(function(){
 	var infcptop = $('#wide_infcp_top .infcptop');
 	var infcp_baniu = $('#wide_infcp_top .infcp_baniu');
 	var top_li = $('#wide_infcp_top .infcptop li');
@@ -176,8 +176,8 @@ $(function(){
 })
 
 
-//右侧浮动的切换
-$(function(){
+	//右侧浮动的切换
+	$(function(){
 	$(".pf_right_3").mouseenter(function(){
 		$(".pf_ygs").show();
 	})
@@ -195,4 +195,5 @@ $(function(){
 	})
 	
 })
+
 })

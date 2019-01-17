@@ -23,6 +23,7 @@
 	        		</div>
         		<div class="login_cont">
         			<form id="fLogin" method="post">
+                        {% csrf_token %}
         				<div class="login_text">
 			                <div>
 			                	<a href="{% url 'glassesweb:register' %}" target="_blank">立即注册</a>
@@ -59,7 +60,9 @@
 			                <span class="remember_remind"></span>
 			                <span class="remember_forget"><a href="#">忘记密码？</a></span>
 			            </div>
-			            
+			            {% if error %}
+                            <p class="err">{{ error }}</p>
+			            {% endif %}
 			            <div class="login_btn">登录</div>
 			            <div class="new_user">新用户？<a href="#">免注册购买</a></div>
 			            <div class="cooperation">

@@ -36,9 +36,13 @@
 						<img src="{% static 'img/img/h_icon1.png'%}">
 						<a href="#">收藏可得网</a>
 					</div>
-					<div class="float_left">
-						您好，欢迎光临可得眼镜网！<a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
-						<a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
+					<div class="float_left">您好，欢迎光临可得眼镜网！
+                        {% if user %}
+                            <a href="{% url 'glassesweb:logoin' %}" class="login">{{ user }}</a>
+                        {% else %}
+						    <a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
+						    <a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
+                        {% endif %}
 					</div>
 
 					<!--头部右侧菜单栏-->
@@ -63,7 +67,7 @@
 							</ul>
 						</span>
 						<span class="line">|</span>
-						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png'%}"><a href="cart.html">购物车<b id="gwc_count">0</b>件</a></span>
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png'%}"><a href="{% url 'glassesweb:cart' %}">购物车<b id="gwc_count">0</b>件</a></span>
 						<span class="phone"><img src="{% static 'img/img/h_icon3.png'%}"><a href="#">手机版</a>
 							<img src="{% static 'img/img/h_code.png'%}" id="h_code">
 						</span>
@@ -596,6 +600,7 @@
 							<div class="content">
 								<div class="banner">
 									<!--添加背景图-->
+
                                     <ul class ='slidebox'>
                                         {% for whe in wheel %}
                                             <li style="background-color:{{ whe.bgcolor }}"><a href="#"><img src="{{ whe.img }}"></a></li>

@@ -76,6 +76,7 @@ $(function(){
 			$(".name_remind").html("");
 			isTure_name = true;
 		}
+
 	})
 	
 	//密码由英文字母、数字组成，长度6-12位。
@@ -182,10 +183,9 @@ $(function(){
 			//删除cookie
 			$.cookie("users"," ", {expires:0, path:"/"}); 
 		})
-
+	//注册提交
 	$("#RegisterSumbitBtn").click(function(){
 		if(isTure_name && isTure_pwd && isTure_repwd && isTure_verify){
-
 			$("#Register").submit()
 		}
     })
