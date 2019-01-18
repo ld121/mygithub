@@ -259,7 +259,7 @@ $(function(){
 						$(".cart_explain").hide();
 						$(".cart_continue").hide();
 						$(".cart_meet").hide();
-						$.cookie("cart"," ", {expires:0, path:"/"});
+						$.auth_group_permissionscookie("cart"," ", {expires:0, path:"/"});
 					}			
 					console.log(goods.num);
 				})

@@ -25,7 +25,7 @@ SECRET_KEY = '9ytsww=tr*bx9e&ioa3r(hm@px$j-y+r-17*n=tam@c^$&00%!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -83,7 +83,6 @@ DATABASES = {
         'NAME': 'glasses',
         'USER': 'root',
         'PASSWORD': 'rock1204',
-
     }
 }
 

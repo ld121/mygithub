@@ -1,6 +1,7 @@
 import hashlib
 import uuid
 
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -83,3 +84,12 @@ def dingdan_axjs(request,id):
 
 def cart(request):
     return render(request,'cart.html')
+
+
+def checkemail(request):
+    email = request.GET.get("emaildata")
+    userdb = User.objects.filter(name = email)
+    if userdb.exists() :
+        return JsonResponse({'error':'账号已被注册','status':0})
+    else:
+        return JsonResponse({'ok':'账号可以使用','status':1})

@@ -346,7 +346,7 @@ CREATE TABLE `glasses_lunbotu` (
 
 LOCK TABLES `glasses_lunbotu` WRITE;
 /*!40000 ALTER TABLE `glasses_lunbotu` DISABLE KEYS */;
-INSERT INTO `glasses_lunbotu` VALUES (1,'http://127.0.0.1:8000/static/img/img/banner_6d00b7.jpg','镜中花.水中月','1','rgb(109, 0, 183)'),(2,'http://127.0.0.1:8000/static/img/img/banner_bg1.jpg','开学新妆备','2','rgb(255, 241, 17)'),(3,'http://127.0.0.1:8000/static/img/img/banner_bg2.jpg','爱尔康视康','3','rgb(203, 231, 235)'),(4,'http://127.0.0.1:8000/static/img/img/banner_bg3.jpg','库博光学','4','rgb(42, 169, 250)'),(5,'http://127.0.0.1:8000/static/img/img/banner_bg4.jpg','博士伦蕾丝彩片','5','rgb(146, 217, 255)'),(6,'http://127.0.0.1:8000/static/img/img/banner_bg5.jpg','可得','6','rgb(111, 186, 241)');
+INSERT INTO `glasses_lunbotu` VALUES (1,'/static/img/img/banner_6d00b7.jpg','镜中花.水中月','1','rgb(109, 0, 183)'),(2,'/static/img/img/banner_bg1.jpg','开学新妆备','2','rgb(255, 241, 17)'),(3,'/static/img/img/banner_bg2.jpg','爱尔康视康','3','rgb(203, 231, 235)'),(4,'/static/img/img/banner_bg3.jpg','库博光学','4','rgb(42, 169, 250)'),(5,'/static/img/img/banner_bg4.jpg','博士伦蕾丝彩片','5','rgb(146, 217, 255)'),(6,'/static/img/img/banner_bg5.jpg','可得','6','rgb(111, 186, 241)');
 /*!40000 ALTER TABLE `glasses_lunbotu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,4 +385,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-17 18:51:23
+-- Dump completed on 2019-01-18 18:02:46
