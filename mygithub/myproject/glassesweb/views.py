@@ -5,28 +5,31 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from glassesweb.models import Wheel, Floor2, User
+from glassesweb.models import Wheel, Floor2, User, F2zhi
 
 
 def kede(request):
     wheel = Wheel.objects.all()
     f2show1 = Floor2.objects.all()[0:6]
-    f2show2 = Floor2.objects.all()[6:]
+    f2show2 = Floor2.objects.all()[6:10]
+    f1show1 = Floor2.objects.all()[11:17]
+    f1show2 = Floor2.objects.all()[11:]
+
 
     token = request.session.get('token')
     if token:
         user = User.objects.get(token=token)
         username = user.name
     else:
-        username = None;
+        username = None
     data = {
         "wheel":wheel,
-        'f2show1':f2show1,
+        'f1show1': f1show1,
+        'f1show2': f1show2,
+        'f2show1': f2show1,
         'f2show2': f2show2,
         'user' : username,
     }
-
-
     return render(request,'kede.html',data)
 
 
@@ -51,7 +54,9 @@ def logoin(request):
         except:
             return render(request, 'logoin.html',{'error':'用户名有误，请检查后输入!'} )
 
-
+def logout(request):
+    request.session.flush()
+    return redirect('glassesweb:logoin')
 
 
 def register(request):
@@ -67,9 +72,17 @@ def register(request):
         return redirect('glassesweb:kede')
 
 
-def dingdan(request):
+def dingdan(request,id):
+    if int(id) > 13:
+        id = "12"
+    showzhi = F2zhi.objects.get(trackid=id)
+    f1show = Floor2.objects.get(trackid=id)
 
-    return render(request,'dingdan.html')
+    data={
+        'showzhi': showzhi,
+        'f1show': f1show,
+    }
+    return render(request,'dingdan.html',data)
 
 
 def dingdan2(request):
@@ -83,7 +96,13 @@ def dingdan_axjs(request,id):
 
 
 def cart(request):
-    return render(request,'cart.html')
+    token = request.GET.get("token")
+    if token:
+
+        return render(request,'cart.html')
+    else:
+        return render(request,'logoin.html')
+
 
 
 def checkemail(request):
@@ -93,3 +112,7 @@ def checkemail(request):
         return JsonResponse({'error':'账号已被注册','status':0})
     else:
         return JsonResponse({'ok':'账号可以使用','status':1})
+
+
+def appendCart(request):
+    return None
