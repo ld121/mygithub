@@ -30,9 +30,14 @@
 						<img src="{% static 'img/img/h_icon1.png' %}">
 						<a href="#">收藏可得网</a>
 					</div>				
-					<div class="float_left">
-						您好，欢迎光临可得眼镜网！<a href="#" class="login" id="login">登录</a>
-						<a href="#" class="register">[免费注册]</a>
+					<div class="float_left">您好，欢迎光临可得眼镜网！
+                        {% if user %}
+                            <a href="{% url 'glassesweb:logoin' %}" class="login">{{ user }}</a>
+                            <a href="{% url 'glassesweb:logout' %}" class="register">退出</a>
+                        {% else %}
+						    <a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
+						    <a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
+                        {% endif %}
 					</div>
 					
 					<!--头部右侧菜单栏-->
@@ -784,39 +789,7 @@
 								
 								<div class="classify_l_select_cont">
 				 					<ul  class="lgd_rgd_select" id="lgd_rgd_select" >
-				 						<li>-1.00</li>
-                                        <li>-1.25</li>
-                                        <li>-1.50</li>
-                                        <li>-1.75</li>
-                                        <li>-2.00</li>
-                                        <li>-2.25</li>
-                                        <li>-2.50</li>
-                                        <li>-2.75</li>
-                                        <li>-3.00</li>
-                                        <li>-3.25</li>
-                                        <li>-3.50</li>
-                                        <li>-3.75</li>
-                                        <li>-4.00</li>
-                                        <li>-4.25</li>
-                                        <li>-4.50</li>
-                                        <li>-4.75</li>
-                                        <li>-5.00</li>
-                                        <li>-5.25</li>
-                                        <li>-5.50</li>
-                                        <li>-5.75</li>
-                                        <li>-6.00</li>
-                                        <li>-6.25</li>
-                                        <li>-6.50</li>
-                                        <li>-6.75</li>
-                                        <li>-7.00</li>
-                                        <li>-7.25</li>
-                                        <li>-7.50</li>
-                                        <li>-7.75</li>
-                                        <li>-8.00</li>
-                                        <li>-8.25</li>
-                                        <li>-8.50</li>
-                                        <li>-8.75</li>
-                                        <li>-9.00</li>
+
 				 					</ul>
 						 		</div>
 						 	</div>

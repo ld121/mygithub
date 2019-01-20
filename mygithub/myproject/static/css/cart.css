@@ -74,7 +74,7 @@
 .quantity .minus,.quantity .plus,.quantity .quantity_input{float: left;width: 20px;height: 20px;line-height: 20px;font-size: 16px;text-align: center;border: 1px solid #ccc;cursor: pointer;margin: 19px 0 0 6px;}
 
 /*购物车为空*/
-.cart_null{width: 989px;height: 180px;font-size: 14px;line-height: 20px;padding-top: 10px;display: none;}
+.cart_null{width: 989px;height: 180px;font-size: 14px;line-height: 20px;padding-top: 10px;display: block;}
 .cart_null_text{width: 400px;margin: 50px 0 0 295px;}
 .cart_null_text i{width: 43px;height: 38px;background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;background-position: -337px -357px;float: left;margin-right: 20px;}
 .cart_null_text a{color: #690;font-size: 12px;}

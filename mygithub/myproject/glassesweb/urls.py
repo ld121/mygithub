@@ -23,5 +23,12 @@ urlpatterns =[
     url(r'^cart/$',views.cart,name='cart'),
     #添加购物车子路由
     url(r'^appendCart/$',views.appendCart,name='appendCart'),
-
+    # 购物车子路由
+    url(r'^cart/$', views.cart, name='cart'),
+    # 点击付款子路由
+    url(r'^buy/$', views.buy, name='buy'),
+    # 点击减少商品
+    url(r'^minus/$', views.minus, name='minus'),
+    # 点击增加商品
+    url(r'^plus/$', views.plus, name='plus'),
 ]

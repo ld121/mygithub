@@ -46,10 +46,27 @@ $(function(){
 	
 	//点击加入购物车
 	$('#appendCart').click(function(){
-		$.get('/glassesweb/appendCart/')
+
+		$.get('/glassesweb/appendCart/',{'goodsnumb':$('#lsl_input').val()},function (response) {
+			if (response.status){
+				alert("已添加到购物车！")
+			}else {
+				alert('请先登录')
+			}
+        })
 	})
-					
-	
+
+	//点击付款
+	$('#buy').click(function(){
+
+		$.get('/glassesweb/buy/',{'goodsnumb':$('#lsl_input').val()},function (response) {
+			if (response.status){
+				location.href='/glassesweb/cart/'
+			}else {
+				alert('请先登录')
+			}
+        })
+	})
 })
 
 

@@ -13,7 +13,7 @@
     	<script src="{% static 'js/jquery.cookie.js' %}"></script>
     	<script src="{% static 'js/cart.js' %}"></script>
     	<script type="text/javascript" src="{% static 'js/logoin.js' %}"></script>
-
+{#        <script type="text/javascript" src="{% static 'js/myhome.js' %}"></script>#}
     	
 	</head>
 	<body>
@@ -27,10 +27,14 @@
 						<img src="{% static 'img/img/h_icon1.png'%}">
 						<a href="#">收藏可得网</a>
 					</div>
-					<div class="float_left">
-						您好，欢迎光临可得眼镜网！
-						<a href="#" class="login" id="login_top">登录</a>
-						<a href="#" class="register">[免费注册]</a>
+					<div class="float_left">您好，欢迎光临可得眼镜网！
+						{% if user %}
+                            <a href="{% url 'glassesweb:logoin' %}" class="login">{{ user }}</a>
+                            <a href="{% url 'glassesweb:logout' %}" class="register">退出</a>
+                        {% else %}
+						    <a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
+						    <a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
+                        {% endif %}
 					</div>
 
 					<!--头部右侧菜单栏-->
@@ -55,7 +59,7 @@
 							</ul>
 						</span>
 						<span class="line">|</span>
-						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png'%}"><a href="#">购物车<b id="gwc_count">11</b>件</a></span>
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png'%}"><a href="#">购物车<b id="gwc_count">0</b>件</a></span>
 						<span class="phone"><img src="{% static 'img/img/h_icon3.png'%}"><a href="#">手机版</a>
 							<img src="{% static 'img/img/h_code.png'%}" id="h_code">
 						</span>
@@ -83,8 +87,9 @@
 				</div>
 			</div>
 			<div class="cart_content">
+                {% if goodsnumb %}
 				<div class="cart_table" id="cartContainer">
-		            <ul class="cart_explain">
+                    <ul class="cart_explain">
 		                <li><div class="e_product">商品</div></li>
 		                <li><div class="e_luminosity"></div></li>
 		                <li><div class="e_quantity">数量</div></li>
@@ -92,22 +97,66 @@
 		                <li><div class="e_subtotal">小计(元)</div></li>
 		                <li><div class="e_operation">操作</div></li>
 		            </ul>
-
-		            <!--添加商品-->
-		            <div id="cartItemContainer" class="cart_product">
-
-{#		            <div class="cart_product_item"><ul class="cart_product_ul"><li class="product"><a href=" + # +" +=""><img src="{% static '/static/img/img_d/21.jpg/'%}"></a><lable class="product_name"></lable></li><li class="quantity"><p class="minus">-</p><input type="text" id="quantity_input" value="" class="quantity_input"><p class="plus">+</p></li><li class="price">￥<span class="item_line_height"></span></li><li class="subtotal">￥<span class="item_line_height">NaN</span></li><li class="operation"><div class="item_line_height"><p><a href="#" class="save">加入收藏夹</a></p><p><a href="#" class="delete">删除</a></p></div></li></ul></div></div>#}
-
-		            <!--购物车为空时-->
-		           	<div class="cart_null">
-		           		<div class="cart_null_text">
-		           			<i></i>
-		           			<span>你的购物车是空的哦~，去挑选你喜欢的商品吧！</span>
-		           			<a href="kede.html" target="_blank">
-		           				<p>去选购<b>&gt;&gt;</b></p>
-		           			</a>
-		           		</div>
+                     <!--添加商品-->
+                    <div id="cartItemContainer" class="cart_product">
+                        {% for cart in carts %}
+                            {% if cart.numb %}
+                            <div class="cart_product_item">
+                                <ul class="cart_product_ul">
+                                    <li class="product">
+                                        <a href="#">
+                                            <img src="{{ cart.goods.img }}">
+                                        </a>
+                                        <label class="product_name">{{ cart.goods.name }}</label>
+                                    </li>
+                                    <li class="quantity">
+                                       <p class="minus" cartid = "{{cart.id}}">-</p>
+                                       <input id="quantity_input" class="quantity_input" type="text" value="{{ cart.numb }}">
+                                       <p class="plus" cartid = "{{cart.id}}">+</p>
+                                    </li>
+                                    <li class="price">
+                                        ￥<span class="item_line_height">{{ cart.goods.price }}</span>
+                                    </li>
+                                    <li class="subtotal">
+                                        ￥<span class="item_line_height">{% widthratio cart.goods.price 1 cart.numb %}</span>
+                                    </li>
+                                    <li class="operation">
+                                        <div class="item_line_height">
+                                            <P>
+                                                <a class="save" href="#">加入收藏夹</a>
+                                            </P>
+                                            <P>
+                                                <a class="delete" href="#" cartid = "{{cart.id}}">删除</a>
+                                            </P>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+		            </div>
+                </div>
+                <div class="cart_continue">
+	        		<i></i><a href="#" style="color: #333; font-size: 14px;" id="cart_continue">继续购物</a>
+	    		</div>
+                {% else %}
+                <!--购物车为空时-->
+		        <div id="cartItemContainer" class="cart_product">
+                </div>
+                <div class="cart_null">
+		            <div class="cart_null_text">
+		           		<i></i>
+		           		<span>你的购物车是空的哦~，去挑选你喜欢的商品吧！</span>
+		           		<a href="{% url 'glassesweb:kede' %}" target="_blank">
+		           			<p>去选购<b>&gt;&gt;</b></p>
+		           		</a>
 		           	</div>
+		        </div>
+                {% endif %}
+
+
+
+
 
 		    		<!--删除确认框-->
 					<div id="conform" style="left:450px;top: 18px;">
@@ -121,11 +170,9 @@
 						<div class="delect_false">不删除</div>
 					</div>
 
-				</div>
 
-	            <div class="cart_continue">
-	        		<i></i><a href="#" style="color: #333; font-size: 14px;" id="cart_continue">继续购物</a>
-	    		</div>
+
+
 
 	    		 <!--促销-->
         		<div class="cart_meet" id="promotionContainer">
@@ -155,9 +202,9 @@
 				<!--结算信息-->
 		        <div class="cart_aggregate" id="settlementInfoContainer">
 		            <div>
-		                <div class="hj_jg">￥<span id="settlementTotalMoney">NaN</span></div>
+		                <div class="hj_jg">￥<span id="settlementTotalMoney">0.00</span></div>
 		                <div class="hj_name">商品总价：</div>
-		                <div class="hj_quantity">共<b id="settlementQuantity">11</b>件商品</div>
+		                <div class="hj_quantity">共<b id="settlementQuantity">0</b>件商品</div>
 		            </div>
 		            <div class="clear"></div>
 		            <div>
@@ -172,22 +219,22 @@
 		            <div class="clear"></div>
 		            <div class="aggregate">
 		                <div class="aggregate_btn" id="btnGoToSubmit">去结算<b> &gt;</b></div>
-		                <div class="aggregate_zj">总计(不含运费)：<b class="a_zj"><label>￥</label><span id="settlementRealTotalMoney">NaN</span></b><b class="a_jf" style="display: none;"><span id="settlementTotalScore">0</span><label>积分</label></b></div>
+		                <div class="aggregate_zj">总计(不含运费)：<b class="a_zj"><label>￥</label><span id="settlementRealTotalMoney">{{ allprice }}</span></b><b class="a_jf" style="display: none;"><span id="settlementTotalScore">0</span><label>积分</label></b></div>
 		            </div>
 
 		        </div>
 			</div>
 
 			<!--登录-->
-			    <div id="quickLogin2">
+			<div id="quickLogin2">
 				<div class="login_zz"></div>
 				<div class="login_cont_bg">
 	        		<div class="login_title">
 	        			<i id="closeLogin"></i>
 	        			您尚未登录
 	        		</div>
-        		    <div class="login_cont">
-        			    <form id="fLogin" method="post">
+        		<div class="login_cont">
+        			<form id="fLogin" method="post">
         				<div class="login_text">
 			                <div>
 			                	<a href="register.html" target="_blank">立即注册</a>
@@ -211,12 +258,12 @@
 
             			<div class="verify" style="display: block;" id="verifyDiv">
         			 		<input id="loginCode" type="text">
-        			 		<div class="verify_div">36im</div>
+        			 		<div class="verify_div">Ly63</div>
         			 		<div class="verify_txt" style="width: 60px;height: 28px;line-height: 28px;background: #72B7FC;float: left;text-align: center;">换一张</div>
         			 		<div class="verify_remind"></div>
             			</div>
-
-            			<div class="remember">
+            			
+            			<div class="remember">	               
 			                <i class="remember_name_i on" id="btnRememberAccount"></i>
 			                <span>记住账户</span>
 			                <i class="auto_name_i " id="btnAutoLogin"></i>
@@ -224,7 +271,7 @@
 			                <span class="remember_remind"></span>
 			                <span class="remember_forget"><a href="#">忘记密码？</a></span>
 			            </div>
-
+			            
 			            <div class="login_btn">登录</div>
 			            <div class="new_user">新用户？<a href="#">免注册购买</a></div>
 			            <div class="cooperation">
@@ -236,12 +283,12 @@
 			                </div>
 			            </div>
         			</form>
-        		    </div>
-			    </div>
-		    </div>
-
-
-		    </div>
+        		</div>
+			</div>			
 		</div>
+		
+			
+		</div>
+		
 	</body>
 </html>

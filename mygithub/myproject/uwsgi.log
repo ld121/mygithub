@@ -481,3 +481,238 @@ invalid request block size: 21573 (max 4096)...skip
 [pid: 23467|app: 0|req: 1/1] 113.87.160.245 () {40 vars in 684 bytes} [Fri Jan 18 08:27:03 2019] GET /glassesweb/kede/ => generated 98596 bytes in 66 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
 Not Found: /favicon.ico
 [pid: 23467|app: 0|req: 2/2] 113.87.160.245 () {38 vars in 639 bytes} [Fri Jan 18 08:27:33 2019] GET /favicon.ico => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Internal Server Error: /glassesweb/kede/
+Traceback (most recent call last):
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/contrib/sessions/backends/base.py", line 202, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'glasses.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./glassesweb/views.py", line 15, in kede
+    token = request.session.get('token')
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/contrib/sessions/backends/base.py", line 68, in get
+    return self._session.get(key, default)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/models/query.py", line 373, in get
+    num = len(clone)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/models/query.py", line 1102, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 876, in execute_sql
+    cursor.execute(sql, params)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.ProgrammingError: (1146, "Table 'glasses.django_session' doesn't exist")
+[pid: 23467|app: 0|req: 13/13] 113.87.161.170 () {46 vars in 905 bytes} [Fri Jan 18 10:13:50 2019] GET /glassesweb/kede/ => generated 205475 bytes in 106 msecs (HTTP/1.1 500) 4 headers in 130 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 14/14] 89.248.174.141 () {30 vars in 450 bytes} [Fri Jan 18 10:14:30 2019] GET /.git/config => generated 2076 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 15/15] 106.15.52.246 () {26 vars in 268 bytes} [Fri Jan 18 10:15:41 2019] GET / => generated 55251 bytes in 34 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 16/16] 113.87.160.245 () {44 vars in 848 bytes} [Fri Jan 18 10:16:23 2019] GET /glassesweb/kede/ => generated 98470 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 196 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 17/17] 103.251.225.12 () {32 vars in 451 bytes} [Fri Jan 18 10:23:39 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 18/18] 113.87.160.245 () {44 vars in 830 bytes} [Fri Jan 18 10:43:34 2019] GET /glassesweb/logoin/ => generated 3338 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 19/19] 72.54.15.135 () {30 vars in 422 bytes} [Fri Jan 18 11:05:13 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /echo.php
+[pid: 23467|app: 0|req: 20/20] 139.162.88.63 () {32 vars in 407 bytes} [Fri Jan 18 13:44:13 2019] GET /echo.php?info=1234567890 => generated 2088 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 21/21] 89.248.174.141 () {30 vars in 450 bytes} [Fri Jan 18 14:02:10 2019] GET /.git/config => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 22/22] 178.214.254.76 () {32 vars in 452 bytes} [Fri Jan 18 14:11:29 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 23/23] 89.248.174.141 () {30 vars in 450 bytes} [Fri Jan 18 16:13:21 2019] GET /.git/config => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+-- unavailable modifier requested: 3 --
+Not Found: /cache/global/img/gs.gif
+[pid: 23467|app: 0|req: 24/25] 80.82.70.187 () {32 vars in 420 bytes} [Fri Jan 18 18:10:36 2019] GET /cache/global/img/gs.gif => generated 2112 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 25/26] 125.64.94.201 () {28 vars in 294 bytes} [Fri Jan 18 18:15:43 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.0 404) 3 headers in 102 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 26/27] 191.96.214.45 () {30 vars in 364 bytes} [Fri Jan 18 18:54:38 2019] GET / => generated 55555 bytes in 30 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 27/28] 188.75.122.43 () {36 vars in 508 bytes} [Fri Jan 18 19:15:18 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 28/29] 89.248.174.141 () {30 vars in 450 bytes} [Fri Jan 18 19:48:11 2019] GET /.git/config => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 29/30] 80.82.70.118 () {30 vars in 362 bytes} [Fri Jan 18 20:01:10 2019] GET / => generated 55553 bytes in 33 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 30/31] 47.52.210.38 () {26 vars in 267 bytes} [Fri Jan 18 20:21:13 2019] GET / => generated 55250 bytes in 30 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 31/32] 89.248.174.141 () {30 vars in 450 bytes} [Fri Jan 18 21:37:18 2019] GET /.git/config => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 32/33] 47.97.21.76 () {26 vars in 266 bytes} [Sat Jan 19 00:04:22 2019] GET / => generated 55249 bytes in 33 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 33/34] 89.248.174.141 () {30 vars in 450 bytes} [Sat Jan 19 01:15:37 2019] GET /.git/config => generated 2076 bytes in 29 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 34/35] 89.248.174.141 () {30 vars in 450 bytes} [Sat Jan 19 04:13:20 2019] GET /.git/config => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /cache/global/img/gs.gif
+[pid: 23467|app: 0|req: 35/36] 80.82.70.187 () {32 vars in 420 bytes} [Sat Jan 19 04:16:24 2019] GET /cache/global/img/gs.gif => generated 2112 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 36/37] 47.98.97.252 () {34 vars in 465 bytes} [Sat Jan 19 04:46:01 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 37/38] 89.248.174.141 () {30 vars in 450 bytes} [Sat Jan 19 05:08:51 2019] GET /.git/config => generated 2076 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 38/39] 106.14.167.211 () {34 vars in 486 bytes} [Sat Jan 19 05:44:53 2019] GET / => generated 2025 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 39/40] 106.14.167.211 () {34 vars in 518 bytes} [Sat Jan 19 05:44:53 2019] GET /glassesweb/kede/ => generated 98470 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 40/41] 106.14.167.211 () {34 vars in 522 bytes} [Sat Jan 19 05:44:53 2019] GET /glassesweb/logoin/ => generated 3338 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 41/42] 106.14.167.211 () {34 vars in 526 bytes} [Sat Jan 19 05:44:53 2019] GET /glassesweb/register/ => generated 5293 bytes in 4 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 42/43] 95.133.47.77 () {32 vars in 449 bytes} [Sat Jan 19 06:49:49 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /.git/config
+[pid: 23467|app: 0|req: 43/44] 89.248.174.141 () {30 vars in 450 bytes} [Sat Jan 19 07:15:09 2019] GET /.git/config => generated 2076 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /cache/global/img/gs.gif
+[pid: 23467|app: 0|req: 44/45] 80.82.78.50 () {32 vars in 419 bytes} [Sat Jan 19 07:16:41 2019] GET /cache/global/img/gs.gif => generated 2112 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 45/46] 103.77.49.229 () {32 vars in 451 bytes} [Sat Jan 19 07:48:27 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /
+[pid: 23467|app: 0|req: 46/47] 112.66.97.43 () {28 vars in 293 bytes} [Sat Jan 19 08:43:40 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 47/48] 104.152.52.32 () {30 vars in 363 bytes} [Sat Jan 19 09:44:30 2019] GET / => generated 55554 bytes in 30 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 48/49] 201.76.122.155 () {32 vars in 452 bytes} [Sat Jan 19 10:15:22 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 16709 (max 4096)...skip
+invalid request block size: 16709 (max 4096)...skip
+Not Found: /w00tw00t.at.blackhats.romanian.anti-sec:)
+[pid: 23467|app: 0|req: 49/50] 213.23.12.149 () {38 vars in 507 bytes} [Sat Jan 19 12:19:09 2019] GET /w00tw00t.at.blackhats.romanian.anti-sec:) => generated 2166 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /phpMyAdmin/scripts/setup.php
+[pid: 23467|app: 0|req: 50/51] 213.23.12.149 () {38 vars in 481 bytes} [Sat Jan 19 12:19:10 2019] GET /phpMyAdmin/scripts/setup.php => generated 2127 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /phpmyadmin/scripts/setup.php
+[pid: 23467|app: 0|req: 51/52] 213.23.12.149 () {38 vars in 481 bytes} [Sat Jan 19 12:19:10 2019] GET /phpmyadmin/scripts/setup.php => generated 2127 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /pma/scripts/setup.php
+[pid: 23467|app: 0|req: 52/53] 213.23.12.149 () {38 vars in 467 bytes} [Sat Jan 19 12:19:12 2019] GET /pma/scripts/setup.php => generated 2106 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /myadmin/scripts/setup.php
+[pid: 23467|app: 0|req: 53/54] 213.23.12.149 () {38 vars in 475 bytes} [Sat Jan 19 12:19:13 2019] GET /myadmin/scripts/setup.php => generated 2118 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /MyAdmin/scripts/setup.php
+[pid: 23467|app: 0|req: 54/55] 213.23.12.149 () {38 vars in 475 bytes} [Sat Jan 19 12:19:13 2019] GET /MyAdmin/scripts/setup.php => generated 2118 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 55/56] 60.191.52.254 () {36 vars in 571 bytes} [Sat Jan 19 12:29:26 2019] HEAD / => generated 2032 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 56/57] 62.4.14.206 () {34 vars in 503 bytes} [Sat Jan 19 12:40:18 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 57/58] 31.185.5.197 () {32 vars in 449 bytes} [Sat Jan 19 13:45:52 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /cache/global/img/gs.gif
+[pid: 23467|app: 0|req: 58/59] 80.82.70.187 () {32 vars in 420 bytes} [Sat Jan 19 14:20:51 2019] GET /cache/global/img/gs.gif => generated 2112 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 59/60] 196.61.108.26 () {32 vars in 451 bytes} [Sat Jan 19 14:40:56 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 60/61] 177.9.118.98 () {32 vars in 449 bytes} [Sat Jan 19 16:00:13 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 61/62] 143.255.242.143 () {32 vars in 453 bytes} [Sat Jan 19 16:15:50 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 62/63] 92.112.16.129 () {32 vars in 457 bytes} [Sat Jan 19 16:46:44 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 63/64] 106.14.104.214 () {26 vars in 269 bytes} [Sat Jan 19 17:08:16 2019] GET / => generated 55252 bytes in 31 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 64/65] 188.215.212.35 () {32 vars in 451 bytes} [Sat Jan 19 17:57:24 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 65/66] 59.36.132.222 () {34 vars in 467 bytes} [Sat Jan 19 18:08:33 2019] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+-- unavailable modifier requested: 3 --
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 66/68] 191.96.110.25 () {30 vars in 364 bytes} [Sat Jan 19 20:40:58 2019] GET / => generated 55555 bytes in 31 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 23467|app: 0|req: 67/69] 47.94.52.138 () {26 vars in 267 bytes} [Sat Jan 19 21:48:26 2019] GET / => generated 55250 bytes in 31 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+Not Found: /hydra.php
+[pid: 23467|app: 0|req: 68/70] 51.68.173.240 () {36 vars in 437 bytes} [Sat Jan 19 22:42:41 2019] GET /hydra.php => generated 2070 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /thinkphp/hydra.php
+[pid: 23467|app: 0|req: 69/71] 51.68.173.240 () {36 vars in 455 bytes} [Sat Jan 19 22:42:42 2019] GET /thinkphp/hydra.php => generated 2097 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 70/72] 51.68.173.240 () {36 vars in 550 bytes} [Sat Jan 19 22:42:42 2019] GET /?s=index/%09hink/module/aciton/param1/$%7B@print(THINK_VERSION)%7D => generated 2091 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /thinkphp/
+[pid: 23467|app: 0|req: 71/73] 51.68.173.240 () {36 vars in 568 bytes} [Sat Jan 19 22:42:43 2019] GET /thinkphp/?s=index/%09hink/module/aciton/param1/$%7B@print(THINK_VERSION)%7D => generated 2136 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /cache/global/img/gs.gif
+[pid: 23467|app: 0|req: 72/74] 80.82.70.187 () {32 vars in 420 bytes} [Sun Jan 20 00:25:05 2019] GET /cache/global/img/gs.gif => generated 2112 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 73/75] 182.16.175.154 () {32 vars in 458 bytes} [Sun Jan 20 00:28:57 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /
+[pid: 23467|app: 0|req: 74/76] 190.114.238.236 () {32 vars in 453 bytes} [Sun Jan 20 00:43:15 2019] GET / => generated 2028 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Empty python request. skip.
+[pid: 23467|app: -1|req: -1/77]  () {0 vars in 0 bytes} [Sun Jan 20 01:47:47 2019]   => generated 0 bytes in 0 msecs ( 0) 0 headers in 0 bytes (0 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /cache/global/img/gs.gif
+[pid: 23467|app: 0|req: 75/78] 80.82.78.50 () {32 vars in 419 bytes} [Sun Jan 20 04:35:02 2019] GET /cache/global/img/gs.gif => generated 2112 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+[pid: 23467|app: 0|req: 76/79] 113.87.161.170 () {40 vars in 684 bytes} [Sun Jan 20 04:48:22 2019] GET /glassesweb/kede/ => generated 94417 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 23467|app: 0|req: 77/80] 113.87.162.221 () {38 vars in 639 bytes} [Sun Jan 20 04:48:57 2019] GET /favicon.ico => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 78/81] 113.87.162.221 () {40 vars in 684 bytes} [Sun Jan 20 04:50:01 2019] GET /glassesweb/kede/ => generated 94417 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 79/82] 113.87.162.221 () {42 vars in 715 bytes} [Sun Jan 20 04:50:06 2019] GET /glassesweb/kede/ => generated 94417 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 23467|app: 0|req: 80/83] 113.87.162.221 () {40 vars in 684 bytes} [Sun Jan 20 04:50:37 2019] GET /glassesweb/kede/ => generated 94417 bytes in 42 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 23467|app: 0|req: 81/84] 113.87.161.170 () {38 vars in 639 bytes} [Sun Jan 20 04:51:13 2019] GET /favicon.ico => generated 2076 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
