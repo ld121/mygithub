@@ -180,7 +180,16 @@ def buy(request):
     token = request.session.get('token')
     userid = User.objects.get(token=token)
     if token:
-        Cart.objects.create(user= userid,goods = goodsid,numb = goodsnumb)
+        try:
+            cart1 = Cart.objects.get(user=userid,goods=goodsid)
+        except:
+            Cart.objects.create(user= userid,goods = goodsid,numb = goodsnumb)
+        else:
+            if cart1.numb:
+                pass
+            else:
+                cart1.numb = cart1.numb +int(goodsnumb)
+                cart1.save()
         return JsonResponse({'status':1})
     else:
         return JsonResponse({'status':0})
