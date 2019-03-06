@@ -23,13 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9ytsww=tr*bx9e&ioa3r(hm@px$j-y+r-17*n=tam@c^$&00%!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#调试开启
 DEBUG = True
 
+#允许访问主机
 ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
-
+#应用安装
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'glassesweb.apps.GlasseswebConfig',
 ]
 
+#中间键
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,8 +53,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#站点URL配置
 ROOT_URLCONF = 'myproject.urls'
 
+
+#模板
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -69,12 +75,13 @@ TEMPLATES = [
     },
 ]
 
+#wsgi应用
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+#数据库的配置
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
@@ -89,7 +96,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-
+# 密码验证规则
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

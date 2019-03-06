@@ -43,3 +43,22 @@ class Cart(models.Model):
     goods = models.ForeignKey(Floor2)
     class Meta:
         db_table='glasses_cart'
+
+class Order(models.Model):
+    user = models.ForeignKey(User)
+    static = models.IntegerField(default=0)
+    createtime = models.DateTimeField(auto_now_add=True)
+    identifier = models.CharField(max_length=256)
+
+    class Meta:
+        db_table='glasses_order'
+
+class OrderGoods(models.Model):
+    order = models.ForeignKey(Order)
+
+    goods = models.ForeignKey(Cart)
+
+    number = models.IntegerField()
+
+    class Meta:
+        db_table='glasses_ordergoods'

@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from glassesweb.models import Wheel, Floor2, User, F2zhi, Cart
+from glassesweb.models import Wheel, Floor2, User, F2zhi, Cart, Order
 
 
 def kede(request):
@@ -194,7 +194,15 @@ def buy(request):
     else:
         return JsonResponse({'status':0})
 
+# 删除购物车中对应物品
+def delgoods(request):
+    id = request.GET.get('id')
+    cart = Cart.objects.get(id=id)
+    cart.numb = 0
+    cart.save()
+    return JsonResponse({'status':1})
 
+# 减少一个购物车中对应物品
 def minus(request):
     id = request.GET.get('id')
     cart = Cart.objects.get(id=id)
@@ -204,6 +212,7 @@ def minus(request):
 
     return JsonResponse({'status':1})
 
+# 增加一个购物车中对应物品
 def plus(request):
     id = request.GET.get('id')
     cart = Cart.objects.get(id=id)
@@ -212,3 +221,27 @@ def plus(request):
     cart.save()
 
     return JsonResponse({'status':1})
+
+# 生成商品订单
+def addorder(request):
+    token = request.GET.get('token')
+    user = User.objects.get(token=token)
+
+
+    order = Order()
+    list = request.GET.get('idlist')
+
+    for id in list:
+        cart = Cart.objects.get(id=id)
+        if cart.numb:
+            order.numb = cart.numb
+            order.goods = cart.goods
+            order.user = cart.user
+    return JsonResponse({'status':1})
+
+# 商品订单
+def order(request):
+
+    return render(request,'order.html')
+
+

@@ -31,4 +31,11 @@ urlpatterns =[
     url(r'^minus/$', views.minus, name='minus'),
     # 点击增加商品
     url(r'^plus/$', views.plus, name='plus'),
+    # 点击删除商品
+    url(r'^delgoods/$', views.delgoods, name='delgoods'),
+    # 商品订单
+    url(r'^order/$', views.order, name='order'),
+    # 生成商品订单
+    url(r'^addorder/$', views.addorder, name='addorder'),
+
 ]

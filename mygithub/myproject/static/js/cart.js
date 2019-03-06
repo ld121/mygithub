@@ -298,9 +298,37 @@ $(function () {
 	$('.delete').click(function () {
 
 		$('#conform').show();
-		var $that = $(this);
+		var cartid = $(this).attr('cartid')
+		$('.delect_true' ).click(function () {
+
+            $.get('/glassesweb/delgoods/',{'id':cartid},function (response) {
+                if (response.status){
+                   $('#conform').hide();
+                   window.location.reload();
+                }
+            })
+        })
+		$('.delect_title i' ).click(function () {
+            $('#conform').hide();
+        })
+        $('.delect_false').click(function () {
+            $('#conform').hide();
+        })
     })
-    // $('#conform').children('.delect_true').click(function () {
-		// $.get('/glassesweb/clearnumb/',{'id':goodsid})
-    // })
+
+    $('#btnGoToSubmit').click(function () {
+
+        var cartid = new Array();
+        i = 0;
+        $('.operation .delete').each(function () {
+            cartid[i] = $(this).attr("cartid");
+            i ++;
+        })
+
+        $.get('/glassesweb/addorder/',{'idlist':cartid},function (response) {
+            if(response.status){
+                window.open('order.html')
+            }
+        })
+    })
 })
