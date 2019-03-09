@@ -1,6 +1,9 @@
 from django.db import models
 
 # 基础模板
+
+
+
 class Bass(models.Model):
     img = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
@@ -59,3 +62,32 @@ class Mainshow(models.Model):
 
     class Meta:
         db_table = 'axf_mainshow'
+
+class Foottypes(models.Model):
+    typeid = models.CharField(max_length=10)
+    typename = models.CharField(max_length=100)
+    childtypenames = models.CharField(max_length=200)
+    typesort = models.IntegerField()
+
+    class Meta:
+        db_table = 'axf_foodtypes'
+
+class Goods(models.Model):
+    productid = models.CharField(max_length=10)
+    productimg = models.CharField(max_length=200)
+    productname = models.CharField(max_length=200)
+    productlongname = models.CharField(max_length=200)
+    isxf = models.IntegerField()
+    pmdesc = models.IntegerField()
+    specifics = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=6,decimal_places=2)
+    marketprice = models.DecimalField(max_digits=6,decimal_places=2)
+    categoryid = models.IntegerField()
+    childcid = models.IntegerField()
+    childcidname = models.CharField(max_length=200)
+    dealerid = models.CharField(max_length=10)
+    storenums = models.IntegerField()
+    productnum = models.IntegerField()
+
+    class Meta:
+        db_table = 'axf_goods'
