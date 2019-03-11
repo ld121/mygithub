@@ -8,4 +8,5 @@ urlpatterns=[
     url(r'^market/(?P<childid>\d+)/(?P<sortid>\d+)/$', views.market, name='market'),
     url(r'^cart/$', views.cart, name='cart'),  # 购物车
     url(r'^mine/$', views.mine, name='mine'),  # 我的
+
 ]

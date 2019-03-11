@@ -1,7 +1,7 @@
 from re import M
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from axf.models import Wheel, Nav, Mustbuy, Commodity, Mainshow, Foottypes, Goods
@@ -81,3 +81,4 @@ def cart(request):
 
 def mine(request):
     return render(request, 'mine/mine.html')
+
