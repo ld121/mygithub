@@ -64,14 +64,14 @@ $(function(){
 		if(!name || name.length <= 0){
     		$(".name_remind").html('请输入账户名！');
     		$("#RUserName").css("border-color","#ccc");
-    		return false;
+    		isTure_name = false;
         }else if(!isTure_name){
 			$(".name_remind").html("用户名只能为邮箱 /手机号/第一位非数字1的数字字母组合");
-			return false;
+			isTure_name = false;
 		}
 		else if(name.length <4 || name.length>20){
 			$(".name_remind").html("账号的长度在4至20个字符之间");
-			return false;
+			isTure_name = false;
        }else{
 			$(".name_remind").html("");
 			isTure_name = true;
@@ -186,7 +186,20 @@ $(function(){
 	//注册提交
 	$("#RegisterSumbitBtn").click(function(){
 		if(isTure_name && isTure_pwd && isTure_repwd && isTure_verify){
-			$("#Register").submit()
+			$("#Register").submit();
 		}
     })
+	$("#RUserName").blur(function () {
+		var $that = $(this)
+		$.get("/glassesweb/checkemail/",{"emaildata":$that.val()},function (response) {
+			if(response.status){
+				$(".name_remind").html('账号可以使用！');
+				 isTure_name = Ture;
+			}else {
+				$(".name_remind").html('账号已被注册！');
+				 isTure_name = false;
+			}
+        })
+    })
+
 })

@@ -1,12 +1,12 @@
 $(function(){
 	//点击光度，出现下拉菜单
-	$.get("json/guangdu.json",function(data){
-		for(var i=0; i<data.length; i++){
-			var obj = data[i];
-			var li = $("<li>" + obj.light+ "</li>");
-			$('.lgd_rgd_select').append(li);
-		}
-	})
+	// $.get("json/guangdu.json",function(data){
+	// 	for(var i=0; i<data.length; i++){
+	// 		var obj = data[i];
+	// 		var li = $("<li>" + obj.light+ "</li>");
+	// 		$('.lgd_rgd_select').append(li);
+	// 	}
+	// })
 		
 	$('#rgd i').click(function(){		
 		$("#lgd_rgd_select").show();
@@ -62,35 +62,35 @@ $(function(){
 	})
 	
 	//点击加入购物车
-	var offset = $('#pf_right_5').offset(); //结束的地方的元素
-	$('#appendCart').click(function(e){
-		var l_count = $('#lsl_input').val();
-		var r_count = $('#rsl_input').val();
-		var countToal =parseInt(l_count) +parseInt(r_count);
-		$("#pf_right_5").text(countToal);
-		
-		var appendcart = $(this);
-		var img = $("#slist li").eq(0).find('img').attr('src');
-		var flyer = $('<img class="u-flyer" src="'+img+'">');
-		
-		flyer.fly({
-			start:{
-				left:e.clientX,
-				top:e.clientY -$('#appendCart').height() ,
-				
-			},
-			end:{
-				left:offset.left + $('#pf_right_5').width()+20,
-				top:offset.top,
-				width:0,
-				height:0
-			}
-		})
-		
-	})
+	// var offset = $('#pf_right_5').offset(); //结束的地方的元素
+	// $('#appendCart').click(function(e){
+	// 	var l_count = $('#lsl_input').val();
+	// 	var r_count = $('#rsl_input').val();
+	// 	var countToal =parseInt(l_count) +parseInt(r_count);
+	// 	$("#pf_right_5").text(countToal);
+	//
+	// 	var appendcart = $(this);
+	// 	var img = $("#slist li").eq(0).find('img').attr('src');
+	// 	var flyer = $('<img class="u-flyer" src="'+img+'">');
+	//
+	// 	flyer.fly({
+	// 		start:{
+	// 			left:e.clientX,
+	// 			top:e.clientY -$('#appendCart').height() ,
+	//
+	// 		},
+	// 		end:{
+	// 			left:offset.left + $('#pf_right_5').width()+20,
+	// 			top:offset.top,
+	// 			width:0,
+	// 			height:0
+	// 		}
+	// 	})
+	//
+	// })
 	
 	//点击立即购买,跳转到购物车页面
-	$("#buy").click(function(){
-		location.href = "cart.html";
-	})
+	// $("#buy").click(function(){
+	// 	location.href = "cart.html";
+	// })
 })

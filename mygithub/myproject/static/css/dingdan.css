@@ -76,7 +76,7 @@ a{text-decoration: none;}
 .message_price_kd b{text-decoration: line-through;font-weight: 100;}
 .details_top_message_price .message_intergral{width: 130px;float: right;}
 
-.details_top_message_sales,.details_top_message_integral,.details_top_select{margin: 5px 0 0 5px;overflow: hidden;}
+.details_top_mesage_sales,.details_top_message_integral,.details_top_select{margin: 5px 0 0 5px;overflow: hidden;}
 .details_top_message_sales div{float: left;line-height: 30px;}
 .message_sales{color: #f60;}
 .message_sales p{height: 28px;line-height: 28px;}
@@ -101,9 +101,9 @@ a{text-decoration: none;}
 .classify_l_select_luminosity p{float: left;margin-left: 10px; height: 24px; line-height: 24px;}
 .classify_l_select_luminosity .lgd,.classify_l_select_luminosity .rgd{height:22px;margin-left: 0px;float: left;line-height: 22px;background: #fff;border: 1px solid #ccc;cursor: pointer;}
 .classify_l_select_luminosity .lgd i,.classify_l_select_luminosity .rgd i{float: right;width: 22px;height: 22px;background-position: -124px -911px;}
-.classify_l_select_luminosity .lgd label,.classify_l_select_luminosity .rgd label{width: 44px;float: left;text-align: center;}
+.classify_l_select_luminosity .lgd label,.classify_l_select_luminosity .rgd label{width: 84px;float: left;text-align: center;}
 .classify_l_select_luminosity i{background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;}
-.classify_l_select_input{width: 30px;height: 22px;line-height: 22px;font-size:16px;text-align: center;background: #fff;margin: 0px 3px 0px 3px;float: left;}
+.classify_l_select_input{width: 60px;height: 22px;line-height: 22px;font-size:16px;text-align: center;background: #fff;margin: 0px 3px 0px 3px;float: left;}
 .classify_l_select_minus,.classify_l_select_plus{width:20px;height:22px;border: 1px solid #ccc;margin: 0px;cursor: pointer;padding-left: 1px;background: #eee;text-align: center;float: left;}
 
 .details_inventory{width: 150px;height:20px;line-height: 20px;position: absolute;right: 0;top: 20px;color: #666;z-index: 1;}
