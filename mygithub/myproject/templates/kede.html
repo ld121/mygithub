@@ -39,6 +39,7 @@
 					<div class="float_left">您好，欢迎光临可得眼镜网！
                         {% if user %}
                             <a href="{% url 'glassesweb:logoin' %}" class="login">{{ user }}</a>
+                            <a href="{% url 'glassesweb:logout' %}" class="register">退出</a>
                         {% else %}
 						    <a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
 						    <a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
@@ -814,59 +815,16 @@
 
 				<!--1F右侧内容-->
 				<div class="wide_f_right">
-        			<div class="wide_f_item">
-        				<a href="{% url 'glassesweb:dingdan' %} " target="_blank">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_1.jpg'%}">
-        					<label class="wide_f_item_price">￥168.00</label>
-                			<label class="wide_f_item_name">强生舒日日抛30片装</label>
-                			<label class="wide_f_item_sales">赠品牌润眼液</label>
+                    {% for f1s1 in f1show1 %}
+                    <div class="wide_f_item">
+        				<a href="{% url 'glassesweb:dingdan' f1s1.trackid%} " target="_blank">
+        					<img class="wide_f_item_img" src="{{ f1s1.img }}">
+        					<label class="wide_f_item_price">￥{{ f1s1.price}}</label>
+                			<label class="wide_f_item_name">{{ f1s1.name}}</label>
+                			<label class="wide_f_item_sales">{{ f1s1.sales}}</label>
         				</a>
         			</div>
-
-        			<div class="wide_f_item">
-        				<a href="{% url 'glassesweb:dingdan' %} " target="_blank">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_2.jpg'%}">
-        					<label class="wide_f_item_price">￥158.00</label>
-                			<label class="wide_f_item_name">博士伦清朗日抛30片装</label>
-                			<label class="wide_f_item_sales">拍四免一，立省158元</label>
-        				</a>
-        			</div>
-
-        			<div class="wide_f_item">
-        				<a href="{% url 'glassesweb:dingdan2' %}" target="_blank">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_3.jpg'%}">
-        					<label class="wide_f_item_price">￥99.00</label>
-			                <label class="wide_f_item_name">库博Biomedics欧柯莱视日抛30片装</label>
-			                <label class="wide_f_item_sales">送品牌润眼液</label>
-        				</a>
-        			</div>
-
-        			<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_4.jpg'%}">
-        					<label class="wide_f_item_price">￥88.00</label>
-               				<label class="wide_f_item_name">诺思纯晰日抛30片装 </label>
-                			<label class="wide_f_item_sales">直降10元 </label>
-        				</a>
-        			</div>
-
-        			<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_5.jpg'%}">
-  							<label class="wide_f_item_price">￥79.00</label>
-                			<label class="wide_f_item_name">海昌EASY DAY日抛30片装 </label>
-               				<label class="wide_f_item_sales">四盒特惠</label>
-        				</a>
-        			</div>
-
-        			<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_6.jpg'%}">
-  							<label class="wide_f_item_price">￥108.00</label>
-                			<label class="wide_f_item_name">视康多水润日抛30片</label>
-                			<label class="wide_f_item_sales">赠品牌润眼液</label>
-        				</a>
-        			</div>
+                    {% endfor %}
 
         			<div class="wide_f_item" style="width: 490px;height: 238px;padding: 0;">
 	    				<div class="wide_infcp infcp_f_cont" id="wide_infcp_1f_cont">
@@ -881,44 +839,18 @@
 						</div>
     				</div>
 
-    				<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_7.jpg'%}">
-  							<label class="wide_f_item_price">￥83.00</label>
-                			<label class="wide_f_item_name">强生润眸两周抛6片装</label>
-                			<label class="wide_f_item_sales">买一赠二</label>
+    				{% for f1s2 in f1show2 %}
+                    <div class="wide_f_item">
+        				<a href="{% url 'glassesweb:dingdan' f1s2.trackid%} " target="_blank">
+        					<img class="wide_f_item_img" src="{{ f1s2.img }}">
+        					<label class="wide_f_item_price">￥{{ f1s2.price}}</label>
+                			<label class="wide_f_item_name">{{ f1s2.name}}</label>
+                			<label class="wide_f_item_sales">{{ f1s2.sales}}</label>
         				</a>
         			</div>
-
-        			<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_8.jpg'%}">
-  							<label class="wide_f_item_price">￥139.00</label>
-                			<label class="wide_f_item_name">库博佰视明月抛3片装</label>
-                			<label class="wide_f_item_sales">买一赠二</label>
-        				</a>
-        			</div>
-
-        			<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_9.jpg'%}">
-  							<label class="wide_f_item_price">￥108.00</label>
-                			<label class="wide_f_item_name">视康舒视氧月抛6片装</label>
-                			<label class="wide_f_item_sales">买一赠二</label>
-        				</a>
-        			</div>
-
-        			<div class="wide_f_item">
-        				<a href="#">
-        					<img class="wide_f_item_img" src="{% static 'img/img/1f_10.jpg'%}">
-  							<label class="wide_f_item_price">￥108.00</label>
-                			<label class="wide_f_item_name">视康舒视氧月抛6片装</label>
-                			<label class="wide_f_item_sales">赠精美伴侣盒</label>
-        				</a>
-        			</div>
-        			</div>
-				</div>
-
+                    {% endfor %}
+                </div>
+            </div>
 
 				<!--2F楼层开始-->
 				<div class="wide_f_main" id="wide_f_2">
@@ -1029,7 +961,7 @@
                             <div class="wide_f_item">
                                 <a href="#">
                                     <img class="wide_f_item_img" src="{{ show2.img }}">
-                                    <label class="wide_f_item_price">{{ show2.price}}</label>
+                                    <label class="wide_f_item_price">￥{{ show2.price}}</label>
                                     <label class="wide_f_item_name">{{ show2.name}}</label>
                                     <label class="wide_f_item_sales">{{ show2.sales}}</label>
                                 </a>
@@ -1040,7 +972,7 @@
                             <div class="wide_f_item">
                                 <a href="{% url 'glassesweb:dingdan_axjs' show1.trackid%}">
                                     <img class="wide_f_item_img" src="{{ show1.img }}">
-                                    <label class="wide_f_item_price">{{ show1.price}}</label>
+                                    <label class="wide_f_item_price">￥{{ show1.price}}</label>
                                     <label class="wide_f_item_name">{{ show1.name}}</label>
                                     <label class="wide_f_item_sales">{{ show1.sales}}</label>
                                 </a>
@@ -1160,7 +1092,7 @@
                             <div class="wide_f_item">
                                 <a href="#">
                                     <img class="wide_f_item_img" src="{{ show2.img }}">
-                                    <label class="wide_f_item_price">{{ show2.price}}</label>
+                                    <label class="wide_f_item_price">￥{{ show2.price}}</label>
                                     <label class="wide_f_item_name">{{ show2.name}}</label>
                                     <label class="wide_f_item_sales">{{ show2.sales}}</label>
                                 </a>
@@ -1171,7 +1103,7 @@
                             <div class="wide_f_item">
                                 <a href="{% url 'glassesweb:dingdan_axjs' show1.trackid%}">
                                     <img class="wide_f_item_img" src="{{ show1.img }}">
-                                    <label class="wide_f_item_price">{{ show1.price}}</label>
+                                    <label class="wide_f_item_price">￥{{ show1.price}}</label>
                                     <label class="wide_f_item_name">{{ show1.name}}</label>
                                     <label class="wide_f_item_sales">{{ show1.sales}}</label>
                                 </a>

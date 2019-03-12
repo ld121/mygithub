@@ -316,5 +316,23 @@ $(function () {
         })
     })
 
+<<<<<<< HEAD
     $('#btnGoToSubmit')
+=======
+    $('#btnGoToSubmit').click(function () {
+
+        var cartid = new Array();
+        i = 0;
+        $('.operation .delete').each(function () {
+            cartid[i] = $(this).attr("cartid");
+            i ++;
+        })
+
+        $.get('/glassesweb/addorder/',{'idlist':cartid},function (response) {
+            if(response.status){
+                window.open('order.html')
+            }
+        })
+    })
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
 })

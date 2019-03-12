@@ -9,10 +9,17 @@
 		
 		<script src="js/jquery-1.12.0.js"></script>		
 		
+<<<<<<< HEAD
     	<script src="js/jquery.cookie.js"></script>
     	<script src="js/cart.js"></script>
     	<script type="text/javascript" src="js/logoin.js"></script>
     		
+=======
+    	<script src="{% static 'js/jquery.cookie.js' %}"></script>
+    	<script src="{% static 'js/cart.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/logoin.js' %}"></script>
+{#        <script type="text/javascript" src="{% static 'js/myhome.js' %}"></script>#}
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
     	
 	</head>
 	<body>
@@ -24,11 +31,23 @@
 					<div class="h_left">
 						<img src="img/img/h_icon1.png">
 						<a href="#">收藏可得网</a>
+<<<<<<< HEAD
 					</div>				
 					<div class="float_left">
 						您好，欢迎光临可得眼镜网！
 						<a href="#" class="login" id="login_top">登录</a>
 						<a href="#" class="register">[免费注册]</a>
+=======
+					</div>
+					<div class="float_left">您好，欢迎光临可得眼镜网！
+						{% if user %}
+                            <a href="{% url 'glassesweb:logoin' %}" class="login">{{ user }}</a>
+                            <a href="{% url 'glassesweb:logout' %}" class="register">退出</a>
+                        {% else %}
+						    <a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
+						    <a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
+                        {% endif %}
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
 					</div>
 					
 					<!--头部右侧菜单栏-->
@@ -53,9 +72,15 @@
 							</ul>
 						</span>
 						<span class="line">|</span>
+<<<<<<< HEAD
 						<span class="menu_gwc"><img src="img/img/h_icon2.png"><a href="#">购物车<b id="gwc_count">0</b>件</a></span>
 						<span class="phone"><img src="img/img/h_icon3.png"><a href="#">手机版</a>
 							<img src="img/img/h_code.png" id="h_code" />
+=======
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png'%}"><a href="#">购物车<b id="gwc_count">0</b>件</a></span>
+						<span class="phone"><img src="{% static 'img/img/h_icon3.png'%}"><a href="#">手机版</a>
+							<img src="{% static 'img/img/h_code.png'%}" id="h_code">
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
 						</span>
 						<span id="tel"><img src="img/img/h_icon4.png" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
 						</span>
@@ -81,8 +106,9 @@
 				</div>
 			</div>
 			<div class="cart_content">
+                {% if goodsnumb %}
 				<div class="cart_table" id="cartContainer">
-		            <ul class="cart_explain">
+                    <ul class="cart_explain">
 		                <li><div class="e_product">商品</div></li>
 		                <li><div class="e_luminosity"></div></li>
 		                <li><div class="e_quantity">数量</div></li>
@@ -90,6 +116,7 @@
 		                <li><div class="e_subtotal">小计(元)</div></li>
 		                <li><div class="e_operation">操作</div></li>
 		            </ul>
+<<<<<<< HEAD
 		            
 		            <!--添加商品-->
 		            <div id="cartItemContainer" class="cart_product">
@@ -107,6 +134,69 @@
 		           		</div>
 		           	</div>
 		    		
+=======
+                     <!--添加商品-->
+                    <div id="cartItemContainer" class="cart_product">
+                        {% for cart in carts %}
+                            {% if cart.numb %}
+                            <div class="cart_product_item">
+                                <ul class="cart_product_ul">
+                                    <li class="product">
+                                        <a href="#">
+                                            <img src="{{ cart.goods.img }}">
+                                        </a>
+                                        <label class="product_name">{{ cart.goods.name }}</label>
+                                    </li>
+                                    <li class="quantity">
+                                       <p class="minus" cartid = "{{cart.id}}">-</p>
+                                       <input id="quantity_input" class="quantity_input" type="text" value="{{ cart.numb }}">
+                                       <p class="plus" cartid = "{{cart.id}}">+</p>
+                                    </li>
+                                    <li class="price">
+                                        ￥<span class="item_line_height">{{ cart.goods.price }}</span>
+                                    </li>
+                                    <li class="subtotal">
+                                        ￥<span class="item_line_height">{% widthratio cart.goods.price 1 cart.numb %}</span>
+                                    </li>
+                                    <li class="operation">
+                                        <div class="item_line_height">
+                                            <P>
+                                                <a class="save" href="#">加入收藏夹</a>
+                                            </P>
+                                            <P>
+                                                <a class="delete" href="#" cartid = "{{cart.id}}">删除</a>
+                                            </P>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+		            </div>
+                </div>
+                <div class="cart_continue">
+	        		<i></i><a href="#" style="color: #333; font-size: 14px;" id="cart_continue">继续购物</a>
+	    		</div>
+                {% else %}
+                <!--购物车为空时-->
+		        <div id="cartItemContainer" class="cart_product">
+                </div>
+                <div class="cart_null">
+		            <div class="cart_null_text">
+		           		<i></i>
+		           		<span>你的购物车是空的哦~，去挑选你喜欢的商品吧！</span>
+		           		<a href="{% url 'glassesweb:kede' %}" target="_blank">
+		           			<p>去选购<b>&gt;&gt;</b></p>
+		           		</a>
+		           	</div>
+		        </div>
+                {% endif %}
+
+
+
+
+
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
 		    		<!--删除确认框-->
 					<div id="conform" style="left:450px;top: 18px;">
 						<div class="delect_title">
@@ -118,6 +208,7 @@
 						<div class="delect_true">删除</div>
 						<div class="delect_false">不删除</div>
 					</div>
+<<<<<<< HEAD
 					
 				</div>       
 		           
@@ -125,6 +216,13 @@
 	        		<i></i><a href="#" style="color: #333; font-size: 14px;" id="cart_continue">继续购物</a>
 	    		</div>
 	    		
+=======
+
+
+
+
+
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
 	    		 <!--促销-->
         		<div class="cart_meet" id="promotionContainer">
         			<div class="cart_meet_more">
@@ -170,7 +268,11 @@
 		            <div class="clear"></div>
 		            <div class="aggregate">
 		                <div class="aggregate_btn" id="btnGoToSubmit">去结算<b> &gt;</b></div>
+<<<<<<< HEAD
 		                <div class="aggregate_zj">总计(不含运费)：<b class="a_zj"><label>￥</label><span id="settlementRealTotalMoney">0.00</span></b><b class="a_jf" style="display: none;"><span id="settlementTotalScore">0</span><label>积分</label></b></div>
+=======
+		                <div class="aggregate_zj">总计(不含运费)：<b class="a_zj"><label>￥</label><span id="settlementRealTotalMoney">{{ allprice }}</span></b><b class="a_jf" style="display: none;"><span id="settlementTotalScore">0</span><label>积分</label></b></div>
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
 		            </div>
 		        
 		        </div>
@@ -208,8 +310,13 @@
 			            <div class="password_remind"></div>
 			            
             			<div class="verify" style="display: block;" id="verifyDiv">
+<<<<<<< HEAD
         			 		<input id="loginCode" type="text"  />
         			 		<div class="verify_div"></div>
+=======
+        			 		<input id="loginCode" type="text">
+        			 		<div class="verify_div">Ly63</div>
+>>>>>>> 42178b26d1a55432a336482e88301211aa086ddd
         			 		<div class="verify_txt" style="width: 60px;height: 28px;line-height: 28px;background: #72B7FC;float: left;text-align: center;">换一张</div>
         			 		<div class="verify_remind"></div>
             			</div>

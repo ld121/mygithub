@@ -30,9 +30,14 @@
 						<img src="{% static 'img/img/h_icon1.png' %}">
 						<a href="#">收藏可得网</a>
 					</div>				
-					<div class="float_left">
-						您好，欢迎光临可得眼镜网！<a href="#" class="login" id="login">登录</a>
-						<a href="#" class="register">[免费注册]</a>
+					<div class="float_left">您好，欢迎光临可得眼镜网！
+                        {% if user %}
+                            <a href="{% url 'glassesweb:logoin' %}" class="login">{{ user }}</a>
+                            <a href="{% url 'glassesweb:logout' %}" class="register">退出</a>
+                        {% else %}
+						    <a href="{% url 'glassesweb:logoin' %}" class="login">登录</a>
+						    <a href="{% url 'glassesweb:register' %}" class="register">[免费注册]</a>
+                        {% endif %}
 					</div>
 					
 					<!--头部右侧菜单栏-->
@@ -600,18 +605,18 @@
 						<div class="d_float_left">
 							
 							<div class="details_top_img">
-								<img src="{% static 'img/img_d/20160919083310_67.jpg' %}" class="smallImg" id="d_img1"/>
-								<img src= "{% static 'img/img_d/20160919083310_68.jpg' %}" class="smallImg"/>
-								<img src= "{% static 'img/img_d/20160919083311_70.jpg' %}" class="smallImg"/>
-								<img src= "{% static 'img/img_d/20160919083312_72.jpg' %}" class="smallImg"/>
+								<img src= "{{ showzhi.img1 }}" class="smallImg" id="d_img1"/>
+								<img src= "{{ showzhi.img2 }}" class="smallImg"/>
+								<img src= "{{ showzhi.img3 }}" class="smallImg"/>
+								<img src= "{{ showzhi.img4 }}" class="smallImg"/>
 								<div id="smallArea" style="display: block; width: 100px; height: 100px; background: rgba(200, 255, 200, 0.3); position: absolute; left: 75px; top: 90px;" >									
 								</div>	
 							</div>
 							<div id="bigArea">
-								<img src="{% static 'img/img_d/20160919083310_67.jpg' %}" class="bigImg"/>
-								<img src= "{% static 'img/img_d/20160919083310_68.jpg' %}" class="bigImg"/>
-								<img src= "{% static 'img/img_d/20160919083311_70.jpg' %}" class="bigImg"/>
-								<img src= "{% static 'img/img_d/20160919083312_72.jpg' %}" class="bigImg"/>
+								<img src= "{{ showzhi.img1 }}" class="bigImg"/>
+								<img src= "{{ showzhi.img2 }}" class="bigImg"/>
+								<img src= "{{ showzhi.img3 }}" class="bigImg"/>
+								<img src= "{{ showzhi.img4 }}" class="bigImg"/>
 							</div>
 							
 							<div class="details_top_img_s">
@@ -620,16 +625,16 @@
         						<div id="slist" class="slist">
 	            					<ul style="width: 304px;">
 	            						<li class="hover">
-	            							<img src="{% static 'img/img_d/20160919083300_18.jpg' %}" />
+	            							<img src="{{ showzhi.img1 }}" />
 	            						</li>
 	            						<li>
-	            							<img src="{% static 'img/img_d/20160919083300_19.jpg' %}" />
+	            							<img src="{{ showzhi.img2 }}" />
 	            						</li>
 	            						<li>
-	            							<img src="{% static 'img/img_d/20160919083301_20.jpg' %}" />
+	            							<img src="{{ showzhi.img3 }}" />
 	            						</li>
 	            						<li>
-	            							<img src="{% static 'img/img_d/20160919083301_21.jpg' %}" />
+	            							<img src="{{ showzhi.img4 }}" />
 	            						</li>
 	            					</ul>
 								</div>					
@@ -668,7 +673,7 @@
 						 	<div class="details_top_message">
 						 		<div class="details_top_message_price">
 						 			<p class="message_title message_title_name">可得价<b>：</b></p>
-                    				<p class="message_price">￥<span>168.00</span></p>
+                    				<p class="message_price">￥<span>{{ f1show.price }}</span></p>
                     				
                     				<p class="message_member_price" id="message_member_price">	            
             							<i class="i"></i>            
@@ -729,12 +734,13 @@
 						 						<label id="rightEyeGd">-1.00</label>
 						 						<i></i>
 						 					</p>
-						 					<p>数量：</p>
-						 					<p class="classify_l_select_minus" id="rsl_minus" >-</p>
-						 					<input class="classify_l_select_input" id="rsl_input" type="text" value="1">
-						 					<p class="classify_l_select_plus" id="rsl_plus" style="margin-left: 0;">+</p>
+
+{#						 					<p>数量：</p>#}
+{#						 					<p class="classify_l_select_minus" id="rsl_minus" >-</p>#}
+{#						 					<input class="classify_l_select_input" id="rsl_input" type="text" value="1">#}
+{#						 					<p class="classify_l_select_plus" id="rsl_plus" style="margin-left: 0;">+</p>#}
 						 				</div>
-						 				
+
 						 				<div id="lgd_id" class="classify_l_select_luminosity">
 						 					<p class="classify_l_select_lable">左眼  L</p>
 						 					<p>光度：</p>
@@ -783,7 +789,7 @@
 								
 								<div class="classify_l_select_cont">
 				 					<ul  class="lgd_rgd_select" id="lgd_rgd_select" >
-				 						
+
 				 					</ul>
 						 		</div>
 						 	</div>
